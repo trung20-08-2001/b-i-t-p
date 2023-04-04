@@ -1,0 +1,1 @@
+function chao(){alert("Chao ban")}
