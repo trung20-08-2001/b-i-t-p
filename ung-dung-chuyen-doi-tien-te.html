@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table style=" border:1px">
+    <tr style="text-align: center">
+        <td>Amount</td>
+        <td style="width: 100px">From Curency</td>
+        <td style="width: 100px">To Curency</td>
+    </tr>
+    <tr style="text-align: center">
+        <td><input type=text" style="width: 100px;" id="candoi" placeholder="Nhập số tiền"></td>
+        <td>
+            <select id="tu">
+                <option value="23000">VND</option>
+                <option value="1">USD</option>
+            </select>
+        </td>
+        <td>
+        <select  id="sang">
+                <option value="1">USD</option>
+                <option value="23000">VND</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<p id="xong">Kết quả:</p>
+<br>
+<button type="button" onclick="doi()">Đổi</button>
+
+</body>
+</html>
+<script>
+    function doi(){
+        let candoi =document.getElementById("candoi").value;
+        let a = document.getElementById("tu").value;
+        let b = document.getElementById("sang").value;
+        let c = candoi/a*b
+        document.getElementById("xong").innerHTML = c;
+
+    }
+</script>

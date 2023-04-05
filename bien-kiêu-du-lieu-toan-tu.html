@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #table1 td:nth-child(1) {text-align: center}
+    #table1 tr {width: 100000px;}
+  </style>
+</head>
+<body>
+<h1>Bài 1:Tính điểm trung bình</h1>
+<table style="border-collapse: collapse" border="1" id="table1">
+  <tr>
+    <td rowspan="2">Tên</td>
+    <td colspan="5" style="text-align: center">Điểm</td>
+  </tr>
+  <tr style="text-align: center">
+    <td>Vật lí</td>
+    <td>Hóa học</td>
+    <td>Sinh học</td>
+    <td>Điểm trung bình</td>
+    <td>Tổng điểm</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td> <input type="text" id="vl" style="width: 70px" oninput="tbc()"></td>
+    <td> <input type="text" id="hh" style="width: 70px" oninput="tbc()"></td>
+    <td> <input type="text" id="sh" style="width: 70px" oninput="tbc()"></td>
+    <td style="width: 70px" ><input style="width: 70px" type="text" id="dtb" ></td>
+    <td  style="width: 70px"><input style="width: 70px" type="text" id="td" ></td>
+  </tr>
+</table>
+<h1>Bài 2: Đổi độ C sang độ F</h1>
+<strong style="color: red">Độ C</strong>
+<input type="text" id="doC" ><br>
+<strong style="color: red">Độ F</strong>
+<input type="text" id="doF" ><br><br>
+<button type="button" onclick="doi()">Đổi</button>
+<h1>Bài 3: Tính diện tích hình tròn</h1>
+<table>
+  <tr>
+    <td><strong>Bán kính đường tròn:</strong></td>
+    <td><input type="text" id="bk" oninput="tinhdt()"></td>
+  </tr>
+  <tr>
+    <td><strong>Diện tích:</strong></td>
+    <td><input type="text" id="dt" ></td>
+  </tr>
+</table>
+<h1>Bài 4:Tính chu vi hình tròn</h1>
+<table>
+  <tr>
+    <td><strong>Bán kính đường tròn:</strong></td>
+    <td><input type="text" id="bk4" oninput="tinhchuvi()"></td>
+  </tr>
+  <tr>
+    <td><strong>Chu vi</strong></td>
+    <td><input type="text" id="cv"></td>
+  </tr>
+</table>
+<script>
+  function doi(){
+    let C=document.getElementById("doC").value;
+    let F=C*9/5-32;
+    document.getElementById("doF").value=F;}
+</script>
+<script>
+  function tinhdt(){
+    let r1=document.getElementById("bk").value;
+    const pi=3.14;
+    let S=r1*pi*r1;
+    document.getElementById("dt").value=S;}
+</script>
+<script>
+  function tinhchuvi(){
+    let r2=document.getElementById("bk4").value;
+    const pi=3.14;
+    let CV=2*pi*r2;
+    document.getElementById("cv").innerHTML=CV;
+  }
+</script>
+<script>
+  function tbc() {
+    let a=parseFloat(document.getElementById("vl").value);
+    let b=parseFloat(document.getElementById("hh").value);
+    let c=parseFloat(document.getElementById("sh").value);
+    let d= (a+b+c)/3
+    let e= a + b + c ;
+    document.getElementById("dtb").value=d;
+    document.getElementById("td").value=e;
+  }
+</script>
+
+</body>
+</html>
