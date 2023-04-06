@@ -6,129 +6,47 @@
 </head>
 <body>
 <h1>Caculator</h1>
-<form>
-    <table>
-    <tr colspan="4"><input type="text" id="caculator" style="width: 205px;"></tr>
+<table>
     <tr>
-        <td><button type="button" style="width: 50px;" id="(" value="(" onclick="mongoac()">(</button></td>
-        <td><button type="button" style="width: 50px;" id=")" value=")" onclick="dongngoac()">)</button></td>
-        <td><button type="button" style="width: 50px;" id="%" value="/100" onclick="phantram()">%</button></td>
-        <td><button type="reset" style="width: 50px;" id="AC" value="AC" onclick="ac()">AC</button></td>
+        <td colspan="2"><input type="text" id="so1" style="width: 175px"></td>
+        <td colspan="2"><input type="text" id="so2" style="width: 175px"></td>
     </tr>
     <tr>
-        <td><button type="button" style="width: 50px;" id="7" value="7" onclick="bay()">7</button></td>
-        <td><button type="button" style="width: 50px;" id="8" value="8" onclick="tam()">8</button></td>
-        <td><button type="button" style="width: 50px;" id="9" value="9" onclick="chin()">9</button></td>
-        <td><button type="button" style="width: 50px;" id="/" value="/" onclick="chia()">/</button></td>
+        <td><button type="button" onclick="cong()">Addition(+)</button> </td>
+        <td><button type="button" onclick="tru()">Subtraction(-)</button> </td>
+        <td><button type="button" onclick="nhan()">Multiplication(*)</button> </td>
+        <td><button type="button" onclick="chia()">Division(/)</button> </td>
     </tr>
-    <tr>
-        <td><button type="button" style="width: 50px;" id="4" value="4" onclick="bon()">4</button></td>
-        <td><button type="button" style="width: 50px;" id="5" value="5" onclick="nam()">5</button></td>
-        <td><button type="button" style="width: 50px;" id="6" value="6" onclick="sau()">6</button></td>
-        <td><button type="button" style="width: 50px;" id="*" value="*" onclick="nhan()">*</button></td>
-    </tr>
-    <tr>
-        <td><button type="button" style="width: 50px;" id="1" value="1" onclick="mot()">1</button></td>
-        <td><button type="button" style="width: 50px;" id="2" value="2" onclick="hai()">2</button></td>
-        <td><button type="button" style="width: 50px;" id="3" value="3" onclick="mot()">3</button></td>
-        <td><button type="button" style="width: 50px;" id="-" value="-" onclick="tru()">-</button></td>
-    </tr>
-    <tr>
-        <td><button type="button" style="width: 50px;" id="0" value="0" onclick="khong()">0</button></td>
-        <td><button type="button" style="width: 50px;" id="." value="." onclick="cham()">.</button></td>
-        <td><button type="button" style="width: 50px;" id="=" value="=" onclick="ketqua()">=</button></td>
-        <td><button type="button" style="width: 50px;" id="+" value="+" onclick="cong()">+</button></td>
-    </tr>
-    </table>
-</form>
-</body>
-</html>
+</table>
+Kết quả:
+<input type="text" id="kq">
 </body>
 </html>
 <script>
-    var truoc=""
-    var hientai=""
-    var future=""
-    function mongoac(){
-        let a = document.getElementById("(").value;
-        document.getElementById("caculator").value=a;
-    }
-    function dongngoac(){
-        let b = document.getElementById(")").value;
-        document.getElementById("caculator").value=b;
-    }
-    function phantram(){
-        let c = document.getElementById("%").value;
-        document.getElementById("caculator").value=c;
-    }
-    function bay(){
-        let d = document.getElementById("7").value;
-        document.getElementById("caculator").value=d;
-    }
-    function tam(){
-        let e = document.getElementById("8").value;
-        document.getElementById("caculator").value=e;
-    }
-    function chin(){
-        let f = document.getElementById("9").value;
-        document.getElementById("caculator").value=f;
-    }
-    function chia(){
-        let g = document.getElementById("/").value;
-        document.getElementById("caculator").value=g;
-    }
-    function bon(){
-        let h = document.getElementById("4").value;
-        document.getElementById("caculator").value=h;
-    }
-    function nam(){
-        let i = document.getElementById("5").value;
-        document.getElementById("caculator").value=i;
-    }
-    function sau(){
-        let k = document.getElementById("6").value;
-        document.getElementById("caculator").value=k;
-    }
-    function nhan(){
-        let l = document.getElementById("*").value;
-        document.getElementById("caculator").value=l;
-    }
-    function mot(){
-        let m = document.getElementById("1").value;
-        document.getElementById("caculator").value=m;
-    }
-    function hai(){
-        let n = document.getElementById("2").value;
-        document.getElementById("caculator").value=n;
-    }
-    function ba(){
-        let o = document.getElementById("3").value;
-        document.getElementById("caculator").value=o;
-    }
-    function tru(){
-        let z = document.getElementById("-").value;
-        document.getElementById("caculator").value=z;
-    }
-    function khong(){
-        let p = document.getElementById("0").value;
-        document.getElementById("caculator").value=p;
-    }
-    function cham(){
-        let r = document.getElementById(".").value;
-        document.getElementById("caculator").value=r;
-    }
-    function cong(){
-        let q = document.getElementById("+").value;
-        document.getElementById("caculator").value=q;
-    }
-    function ketqua(){
-        let kq=document.getElementById("caculator");
-        truoc += value;
-        truoc = kq.value;
-    }
-    function bieuthuc() {
-        hientai=
-            future= hientai
-        hientai= ""
-    }
+        function cong() {
+            let a=parseInt(document.getElementById("so1").value)
+            let b=parseInt(document.getElementById("so2").value)
+            let c = a + b;
+            document.getElementById("kq").value=c;
+        }
+        function tru() {
+            let a=parseInt(document.getElementById("so1").value)
+            let b=parseInt(document.getElementById("so2").value)
+            let d = a - b;
+            document.getElementById("kq").value=d;
+        }
+        function nhan() {
+            let a=parseInt(document.getElementById("so1").value)
+            let b=parseInt(document.getElementById("so2").value)
+            let e = a*b;
+            document.getElementById("kq").value=e;
+        }
+        function chia() {
+            let a=parseInt(document.getElementById("so1").value)
+            let b=parseInt(document.getElementById("so2").value)
+            let f = a/b;
+            document.getElementById("kq").value=f;
+        }
+
 </script>
+
