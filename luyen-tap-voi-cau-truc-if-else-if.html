@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let a = prompt("Nhập tên của bạn")
+    if (a=="Admin") {
+       let b = prompt("Nhâp mật khẩu của bạn");
+       if (b=="TheMaster") {
+           document.write("Welcome");
+       } else if (b=="null") {
+           document.write("Canceled")
+       } else {
+           document.write("Wrong password")
+       }
+    } else if (a=="null") {
+        document.write("cancel")
+    } else {document.write("I don't know you")}
+</script>
