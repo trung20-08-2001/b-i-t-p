@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img onclick="doianh()" id="anh1" width="300px" height="400px" src="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg">
+
+</body>
+</html>
+<script>
+    let a1="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg";
+    let a2="https://img.thuthuatphanmem.vn/uploads/2018/10/26/anh-dep-cau-rong-da-nang-viet-nam_055418962.jpg";
+    let a3="https://2.bp.blogspot.com/-IWs-4Yi5HnM/UMSX6eKhPRI/AAAAAAAACAI/7ei9UK7Euww/s1600/Anh+dep+Boxgiaitri_053.jpg";
+    function doianh() {
+        let laytheimg=document.getElementById("anh1");
+        let anhbandau=laytheimg.src
+        if (anhbandau===a1) {
+            laytheimg.src=a2;
+        } else if (anhbandau===a2) {
+            laytheimg.src = a3;
+        }
+        else {
+            laytheimg.src=a1;
+        }
+    }
+</script>

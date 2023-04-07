@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let a= parseFloat(prompt("nhập cân nặng"));
+    let b= parseFloat(prompt("nhập chiều cao"));
+    let c= a/(b*b);
+    if (c<18.5) {
+        alert("Undeweight");
+    } else if(c<25) {
+        alert("Normal");
+    } if (c<30) {
+        alert("Overweight");
+    } else {
+        alert("Obese")
+    }
+</script>

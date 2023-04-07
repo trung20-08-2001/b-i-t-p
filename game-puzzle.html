@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse
+        }
+    </style>
+</head>
+<body>
+<img id="anh1" onclick="doi1()" src="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-6.jpg" height="100" width="100"/>
+<img id="anh2" onclick="doi2()" src="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-7.jpg" height="100" width="100"/>
+<br>
+
+<img id="anh3" onclick="doi3()" src="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-10.jpg" height="100" width="100"/>
+<img id="anh4" onclick="doi4()" src="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-11.jpg" height="100" width="100"/>
+
+
+</body>
+</html>
+<script>
+    let a = "http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-6.jpg";
+    let b = "http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-7.jpg";
+    let c = "http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-10.jpg";
+    let d = "http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-11.jpg";
+    function doi1() {
+        let anh1 = document.getElementById("anh1");
+        let src1 = anh1.src;
+        if (src1 === a) {
+            anh1.src = b;
+        } else if (src1 === b) {
+            anh1.src = c;
+        } else if (src1 === c) {
+            anh1.src = d;
+        } else {
+            anh1.src = a;
+        }
+    }
+
+    function doi2() {
+        let anh2 = document.getElementById("anh2");
+        let src2 = anh2.src;
+        if (src2 === a) {
+            anh2.src = b;
+        } else if (src2 === b) {
+            anh2.src = c;
+        } else if (src2 === c) {
+            anh2.src = d;
+        } else {
+            anh2.src = a;
+        }
+    }
+
+    function doi3() {
+        let anh3 = document.getElementById("anh3");
+        let src3 = anh3.src;
+        if (src3 === a) {
+            anh3.src = b;
+        } else if (src3 === b) {
+            anh3.src = c;
+        } else if (src3 === c) {
+            anh3.src = d;
+        } else {
+            anh3.src = a;
+        }
+    }
+
+    function doi4() {
+        let anh4 = document.getElementById("anh4");
+        let src4 = anh4.src;
+        if (src4 === a) {
+            anh4.src = b;
+        } else if (src4 === b) {
+            anh4.src = c;
+        } else if (src4 === c) {
+            anh4.src = d;
+        } else {
+            anh4.src = a;
+        }
+    }
+
+    if (src1===src2) {
+        if (src1===src3) {
+            if (src1===src4) {
+                alert("You win");
+            }
+        }
+    }
+</script>

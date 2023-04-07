@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="anh" style="position: relative" src="https://i5.walmartimages.com/asr/3a94e0dc-2c61-4f46-8637-0a0684a390fa_1.b604f2d81de27510dda3a2985ad0dd1d.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff" alt="Đợi ảnh" width="300px" height="300px"><br>
+<input type="button" value="Click" onclick="dichuyenanh()" id="dichuyen">
+</body>
+</html>
+<script>
+    let px=0;
+    function dichuyenanh() {
+        let a = document.getElementById("anh");
+        px+=10
+
+        a.style.left=px + "px";
+    }
+</script>
