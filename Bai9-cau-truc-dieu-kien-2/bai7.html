@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{text-align: center}
+    </style>
+</head>
+<body style="text-align: center">
+<h3>Giải pt:Ax^2+Bx+C=0</h3>
+<form>
+    <input id="a" placeholder="Nhập A" style="width : 500px">
+    <br><br>
+    <input placeholder="Nhập B" id="b" style="width : 500px">
+    <br><br>
+    <input placeholder="Nhập C" id="c" style="width : 500px">
+    <br><br>
+    <input placeholder="X=" id="x" style="width : 500px">
+    <br><br>
+    <button type="button" onclick="tinh()">Tìm x</button>
+    <button type="reset">Xóa</button>
+</form>
+</body>
+</html>
+<script>
+    function tinh() {
+    let a=parseFloat(document.getElementById("a").value);
+    let b=parseFloat(document.getElementById("b").value);
+    let c=parseFloat(document.getElementById("c").value);
+    let d=b*b-4*a*c;
+    let ketqua=document.getElementById("x");
+    if (d<0) {
+        ketqua.value="Phương trình vô nghiệm";
+    } else if (d===0) {
+        x=-b/(2*a);
+        ketqua.value="Phương trình co nghiệm duy nhât:"+x;
+    }else {
+        x1=(-b+Math.sqrt(d))/(2*a);
+        x2=(-b-Math.sqrt(d))/(2*a);
+        ketqua.value="Phương trình có hai nghiệm:x1="+x1+" và x2="+x2;
+    }
+    }
+</script>

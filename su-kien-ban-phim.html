@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<img id="anh" src=""
-
+<body onload="docReady()">
+<img id="anh" style="position: absolute; left:0px; top:0px"
+     src="https://anhdepbonphuong.com/wp-content/uploads/2016/01/tron-bo-15-anh-girl-xinh-full-hd-cuc-dep-lam-hinh-nen-may-tinh-5.jpg" height="333" width="333"/>
 </body>
 </html>
 <script>
@@ -15,17 +15,40 @@
         let a = document.getElementById("anh");
         a.style.left = parseInt(a.style.left) + 10 + "px"
     }
+
     function phai() {
         let a = document.getElementById("anh");
-        a.style.left = parseInt(a.style.left) + 10 + "px"
+        a.style.left = parseInt(a.style.left) - 10 + "px"
     }
+
     function tren() {
         let a = document.getElementById("anh");
         a.style.top = parseInt(a.style.top) - 10 + "px"
     }
+
     function xuong() {
         let a = document.getElementById("anh");
         a.style.top = parseInt(a.style.top) + 10 + "px"
+    }
+
+    function dichuyen(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                phai();
+                break;
+            case 39:
+                trai();
+                break;
+            case 38:
+                tren();
+                break;
+            case 40:
+                xuong();
+                break;
+        }
+    }
+    function docReady() {
+        window.addEventListener('keydown', dichuyen);
     }
 
 </script>

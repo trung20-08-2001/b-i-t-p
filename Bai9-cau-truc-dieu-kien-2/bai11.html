@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {font-size: 20px;}
+        input {width: 200px; height: 30px;}
+
+    </style>
+</head>
+<body>
+<h3>Tính thuế thu nhập cá nhân</h3>
+<img style="height: 300px; width:500px" src="https://winerp.vn/wp-content/uploads/2020/01/c%C3%A1ch-t%C3%ADnh-thu%E1%BA%BF-thu-nh%E1%BA%ADp-c%C3%A1-nh%C3%A2n.png"> </a>
+<br><p>Theo như bảng trên thì ta có chương trình để tính như sau:</p>
+<form>
+<input placeholder="Nhập vào thu nhập của bạn:" id="thunhap">
+<br><br>
+<input placeholder="Thuế phải nộp:" id="thue">
+<br><br>
+<button type="button" onclick="tinh()">Tính</button>
+<button type="reset">Xóa</button>
+</form>
+</body>
+</html>
+<script>
+    function tinh() {
+        let a=parseFloat(document.getElementById("thunhap").value);
+        let thue=document.getElementById("thue");
+        if (a<0) {
+            thue.value="Nhập lại";
+        } else if (a<=5000000) {
+            thue.value=a*0.05 + "VND" ;
+        } else if (a<=10000000) {
+            thue.value=a*0.1+250000 + "VND";
+        } else if (a<=18000000) {
+            thue.value = a * 0.15 +750000 + "VND";
+        } else if (a<=32000000) {
+            thue.value = a * 0.2 +1950000 + "VND";
+        } else if (a<=52000000) {
+            thue.value=a*0.25+4750000 + "VND";
+        } else if (a<=80000000) {
+            thue.value = a * 0.3 +9750000 + "VND";
+        } else if (a>80000000) {
+            thue.value = a * 0.3+18150000 + "VND";
+        }
+    }
+</script>

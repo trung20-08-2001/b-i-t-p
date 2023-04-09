@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Tính diện tích hình chữ nhật</h3>
+<form>
+    <input id="dai" placeholder="Nhập chiều dài">
+    <br><br>
+    <input placeholder="Nhập chiều rộng" id="rong">
+    <br><br>
+    <input placeholder="Diện tích" id="dt">
+    <br><br>
+    <button type="button" onclick="tinh()">Tính</button>
+    <button type="reset">Xóa</button>
+</form>
+</body>
+</html>
+<script>
+    function tinh() {
+        let a=parseFloat(document.getElementById("dai").value);
+        let b=parseFloat(document.getElementById("rong").value);
+        let dientich=document.getElementById("dt");
+            dientich.value=a*b;
+    }
+</script>

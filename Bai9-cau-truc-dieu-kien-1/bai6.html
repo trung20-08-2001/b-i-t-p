@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {width: 300px}
+        body {position: absolute; top:100px; left: 100px}
+    </style>
+</head>
+<body>
+<h3>Tính hoa hồng theo doanh số bán hàng</h3>
+<input id="sotiendaban" placeholder="Nhập số tiền đã bán">
+<br><br>
+<input id="phantramhoahong" placeholder="Nhập phần trăm hoa hồng">
+<br><br>
+<input id="hoahongnhanduoc" placeholder="Số tiền hoa hồng nhận được:">
+<br><br>
+<button id="tinh" onclick="tinh()">Tính</button>
+<button id="xoa" onclick="xoa()">Xóa</button>
+</body>
+</html>
+<script>
+    let hoahongnhanduoc = document.getElementById("hoahongnhanduoc");
+    let sotiendaban = parseInt(document.getElementById("sotiendaban").value);
+    let phantramhoahong = parseInt(document.getElementById("phantramhoahong").value);
+
+    function tinh() {
+        let hoahongnhanduoc = document.getElementById("hoahongnhanduoc");
+        let sotiendaban = parseInt(document.getElementById("sotiendaban").value);
+        let phantramhoahong = parseInt(document.getElementById("phantramhoahong").value);
+        if(phantramhoahong < 0) {
+            hoahongnhanduoc.value = "Bạn đã nhập số âm vui lòng nhập lại.  ";
+        } else if (sotiendaban < 0) {
+            hoahongnhanduoc.value = "Bạn đã nhập số âm vui lòng nhập lại.";
+        } else if (isNaN(phantramhoahong)) {
+                hoahongnhanduoc.value = "Bạn vừa nhập chữ hãy nhập lại bằng số";
+        } else if (isNaN(sotiendaban)) {
+                hoahongnhanduoc.value = "Bạn vừa nhập chữ hãy nhập lại bằng số";
+        } else {
+            hoahongnhanduoc.value = phantramhoahong * sotiendaban/100 + " VND";
+        }
+    }
+    function xoa() {
+        document.getElementById("phantramhoahong").value="";
+        document.getElementById("hoahongnhanduoc").value="";
+        document.getElementById("sotiendaban").value="";
+
+    }
+
+</script>

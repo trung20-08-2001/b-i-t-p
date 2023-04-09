@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Kiểm tra điều kiện vào lớp 10</h3>
+<p>Học sinh có bị lưu ban trong cấp học trước không</p>
+<select id="luuban" onclick="coluuban()">
+    <option>Không</option>
+    <option>Có</option>
+</select>
+<select style="display: none" id="sonam">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+</select>
+<br><br>
+<input id="tuoi" placeholder="Nhập số tuổi ">
+<br><br>
+<input placeholder="Nhập số điểm thi" id="diemthisinh">
+<br><br>
+<input placeholder="Nhập điểm chuẩn để đỗ" id="diemchuan">
+<br><br>
+<p id="ketqua"> Kết quả:</p>
+<button type="button" onclick="kiemtra()">Kiểm tra:</button>
+<button onclick="xoa()">Xóa</button>
+
+</body>
+</html>
+<script>
+    let luuban = document.getElementById("luuban");
+    let sonam = document.getElementById("sonam");
+    let maynam = parseFloat(sonam.value);
+
+    function kiemtra() {
+        let a = parseFloat(document.getElementById("tuoi").value);
+        let b = parseFloat(document.getElementById("diemthisinh").value);
+        let c = parseFloat(document.getElementById("diemchuan").value);
+        let ketqua = document.getElementById("ketqua");
+        let luuban = document.getElementById("luuban");
+        let sonam = document.getElementById("sonam");
+        let maynam = parseFloat(sonam.value);
+        if (a < 15 && a > 18) {
+            ketqua.innerHTML="Độ tuổi không phù hợp.";
+        } else if (b<c) {
+            ketqua.innerHTML="Bị loại do không đủ điểm.";
+        } else if (luuban.value==="Không") {
+            ketqua.innerHTML="Đủ điều kiện vào 10.";
+        } else if (maynam>3) {
+            ketqua.innerHTML="Bị loại do lưu ban quá nhiều.";
+        } else {
+            ketqua.innerHTML="Đủ điều kiện vao 10.";
+        }
+    }
+
+    function coluuban() {
+        if (luuban.value === "Có") {
+            sonam.style.display = "block";
+        } else {
+            sonam.style.display = "none";
+        }
+    }
+    function xoa() {
+        document.getElementById("tuoi").value = "";
+        document.getElementById("diemthisinh").value = "";
+    }
+</script>

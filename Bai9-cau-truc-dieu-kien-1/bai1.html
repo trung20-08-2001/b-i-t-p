@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Kiểm tra chia hết</h3>
+
+<input id="a" placeholder="Nhập số thứ nhất">
+<br><br>
+<input placeholder="Nhập số thứ hai" id="b">
+<br>
+<p id="ketqua"> Kết quả:</p>
+<button type="button" onclick="kiemtra()">Kiểm tra:</button>
+<button onclick="xoa()">Xóa</button>
+</body>
+</html>
+<script>
+    function kiemtra() {
+        let a = parseFloat(document.getElementById("a").value);
+        let b = parseFloat(document.getElementById("b").value);
+        let kiemtra = document.getElementById("ketqua");
+        if (a % b === 0) {
+            kiemtra.innerHTML = a + " chia hết cho " + b;
+        } else {
+            kiemtra.innerHTML = a + " không chia hết cho " + b;
+        }
+    }
+
+    function xoa() {
+        document.getElementById("a").value = "";
+        document.getElementById("b").value = "";
+        document.getElementById("ketqua").innerHTML = "Kiểm tra";
+    }
+</script>

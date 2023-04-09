@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Đổi độ dài</h3>
+<form>
+    <input id="input" placeholder="Nhập độ dài cần đổi">
+    <select id="befor">
+        <option value="M1">M</option>
+        <option value="F1">Feet</option>
+    </select><br><br><br>
+    <input placeholder="Kết quả" id="ketqua">
+    <select id="after">
+        <option value="M2">M</option>
+        <option value="F2">Feet</option>
+    </select><br><br>
+    <button type="button" onclick="doi()">Đổi</button>
+    <button type="reset">Xóa</button>
+</form>
+</body>
+</html>
+<script>
+    function doi() {
+        let a=parseFloat(document.getElementById("input").value);
+        let m=document.getElementById("befor").value;
+        let f=document.getElementById("after").value;
+        let ketqua=document.getElementById("ketqua");
+        if (m==="M1" && f==="F2") {
+            ketqua.value=a*3.2808;
+        } else if (m==="F1" && f==="M2") {
+            ketqua.value=a/3.2808;
+        } else {
+            ketqua.value=a;
+        }
+    }
+</script>

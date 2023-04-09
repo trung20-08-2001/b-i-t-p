@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Nhâp vào số để kiểm tra tuổi</h3>
+<input id="old" placeholder="Nhập số tuổi để kiểm tra">
+<button onclick="kiemtra()"> Kiểm tra</button>
+</body>
+</html>
+<script>
+    function kiemtra() {
+        let tuoi=parseInt(document.getElementById("old").value);
+        if (tuoi>=0 && tuoi<=120) {
+            alert("Có là tuổi ");
+        }else {
+            alert("Không là tuổi");
+        }
+    }
+</script>

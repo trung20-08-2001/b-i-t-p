@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Kiểm tra có là tam giác không-->
+</body>
+</html>
+<script>
+    let a =prompt("Nhập số thứ nhất");
+    let b =prompt("Nhập số thứ hai");
+    let c =prompt("Nhập số thứ ba");
+    let a1= parseFloat(a);
+    let b1= parseFloat(b);
+    let c1= parseFloat(c);
+    if (a1 > 0 && b1 > 0 && c1 > 0 &&
+        a1 + b1 > c1 &&
+        b1 + c1 > a1 &&
+        a1 + c1 > b1 ) {
+        alert(a+", "+ b+", "+ c +" là ba cạnh của tam giác");
+    } else {
+        alert(a+", "+ b+", "+ c +" ko là ba cạnh của tam giác");
+    }
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Tính diện tích hình vuông</h3>
+<form>
+    <input id="input" placeholder="Nhập vào cạnh của hình vuông" style=" width:200px">
+    <br><br>
+    <input placeholder="Kết quả" id="ketqua" style=" width:200px">
+    <br><br>
+    <button type="button" onclick="tinh()">Tính</button>
+    <button type="reset">Xóa</button>
+</form>
+
+</body>
+</html>
+<script>
+    function tinh() {
+        let a=parseFloat(document.getElementById("input").value);
+        let dientich=document.getElementById("ketqua");
+        dientich.value=a*a;
+
+    }
+
+
+</script>

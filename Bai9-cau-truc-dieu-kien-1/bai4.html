@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Tìm số lớn nhất trong ba số</h3>
+<input id="mot" placeholder="Nhập số thứ nhất: ">
+<br><br>
+<input placeholder="Nhập số thứ hai:" id="hai">
+<br><br>
+<input placeholder="Nhập số thứ ba;:" id="ba">
+<br><br>
+<input id="ketqua"  placeholder="Kết quả">
+<br><br>
+<button type="button" onclick="kiemtra()">Kiểm tra:</button>
+<button onclick="xoa()">Xóa</button>
+</body>
+</html>
+<script>
+
+  function kiemtra() {
+      let a=parseFloat(document.getElementById("mot").value);
+      let b=parseFloat(document.getElementById("hai").value);
+      let c=parseFloat(document.getElementById("ba").value);
+      let max=document.getElementById("ketqua");
+      if (a > b) {
+          if (a > c) {
+              max.value = a + " là số lớn nhất";
+          } else {
+              max.value = c + " là số lớn nhất";
+          }
+      } else if (b > c) {
+          max.value = b + " là số lớn nhất";
+      } else {
+          max.value = c + " là số lớn nhất";
+      }
+  }
+  function xoa() {
+      document.getElementById("mot").value = "";
+      document.getElementById("hai").value = "";
+      document.getElementById("ba").value = "";
+      document.getElementById("ketqua").value = "Kết quả";
+  }
+</script>

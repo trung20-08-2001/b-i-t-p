@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--tính giá điên
+  Bậc 1: 0 - 50 kWh, đơn giá 1.500 đồng/kWh.
+  Bậc 2: 51 - 100 kWh, đơn giá 1.600 đồng/kWh.
+  Bậc 3: 101 - 200 kWh, đơn giá 1.800 đồng/kWh.
+  Bậc 4: 201 - 300 kWh, đơn giá 2.000 đồng/kWh.
+  Bậc 5: Trên 300 kWh, đơn giá 2.500 đồng/kWh.-->
+
+</body>
+</html>
+
+<script>
+    let a =prompt("Nhập vào số đện");
+    if (a<0) {
+        alert("Nhập lại");
+    } else if (a>=0 && a<=50) {
+        alert("Số tiền điện là: " +a*1500+" VND");
+    } else if (a<=100) {
+        alert("Số tiền điện là: " +a*1600+" VND");
+    } else if (a<=200) {
+        alert("Số tiền điện là: " +a*1800+" VND");
+    } else if(a<=300) {
+        alert("Số tiền điện là: " +a*2000+" VND");
+    } else {
+        alert("Số tiền điện là: " +a*2500+" VND");
+    }
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Tính cước điện thoại</h3>
+<p>Cho ví dụ:</p>
+<p>Phí thuê bao bắt buộc là 25 nghìn.</p>
+<p> 600 đồng cho mỗi gọi của 50 phút đầu tiên.</p>
+<p>400 đồng cho mỗi phút gọi của 150 phút tiếp theo.</p>
+<p>200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.</p>
+<p>Chương trình để tính:</p>
+<input placeholder="Nhập vào số phút gọi:" id="time">
+<br><br>
+<input placeholder="Cước phải đóng:" id="tien">
+<br><br>
+<button id="tinh" onclick="tinh()">Tính</button>
+<button id="xoa" onclick="xoa()">Xóa</button>
+</body>
+</html>
+<script>
+    function tinh() {
+        let a=parseInt(document.getElementById("time").value);
+        let tien=document.getElementById("tien");
+        if (isNaN(a)) {
+            tien.value="Nhập số";
+        } else if (a<0) {
+            tien.value="Nhập lại";
+        }else if (a>=0 && a<=50) {
+            tien.value=(25000+a*600)+" VND";
+        }else if (a<=200) {
+            tien.value=(25000+a*400)+" VND";
+        }else {
+            tien.value=(25000+a*200)+" VND";
+        }
+    }
+    function xoa() {
+        document.getElementById("time").value="";
+        document.getElementById("tien").value="";
+    }
+</script>

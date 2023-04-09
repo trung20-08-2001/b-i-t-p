@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            width: 207px;
+            height: 50px;
+            font-size: 20px;
+            background-color: bisque;
+            position: absolute;
+            top: 100px;
+        }
+
+        button {
+            height: 50px;
+            font-size: 20px;
+            background-color: chartreuse;
+        }
+
+        p {
+            font-size: 30px;
+            position: absolute;
+            left: 60px
+        }
+
+        table {
+            position: absolute;
+            top: 150px;
+            background-color: #a4262c
+        }
+
+    </style>
+</head>
+<body>
+<p>Caculator</p>
+
+<input type="text" id="caculator">
+<table>
+    <tr>
+        <td>
+            <button type="button" style="width: 50px;" id="(" value="(" onclick="nhap('(')">(</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id=")" value=")" onclick="nhap(')')">)</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="%" value="/100" onclick="del()">DEL</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="AC" value="AC" onclick="ac()">AC</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" style="width: 50px;" id="7" value="7" onclick="nhap('7')">7</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="8" value="8" onclick="nhap('8')">8</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="9" value="9" onclick="nhap('9')">9</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="/" value="/" onclick="nhap('/')">/</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" style="width: 50px;" id="4" value="4" onclick="nhap('4')">4</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="5" value="5" onclick="nhap('5')">5</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="6" value="6" onclick="nhap('6')">6</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="*" value="*" onclick="nhap('*')">*</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" style="width: 50px;" id="1" value="1" onclick="nhap('1')">1</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="2" value="2" onclick="nhap('2')">2</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="3" value="3" onclick="nhap('3')">3</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="-" value="-" onclick="nhap('-')">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" style="width: 50px;" id="0" value="0" onclick="nhap('0')">0</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="." value="." onclick="nhap('.')">.</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="=" value="=" onclick="ketqua('=')">=</button>
+        </td>
+        <td>
+            <button type="button" style="width: 50px;" id="+" value="+" onclick="nhap('+')">+</button>
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+    function del() {
+        let d = document.getElementById("caculator");
+        d.value = d.value.slice(0, -1);
+    }
+
+    function nhap(so) {
+        let a = document.getElementById("caculator");
+        a.value = a.value + so;
+    }
+
+    function ketqua() {
+        let b = document.getElementById("caculator");
+        let c = b.value;
+        b.value = eval(c);
+    }
+
+    function ac() {
+        e = document.getElementById("caculator");
+        e.value = ""
+    }
+
+</script>
