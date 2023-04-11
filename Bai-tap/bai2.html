@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Nhập vào độ tuổi n nếu không hợp lệ thì nhập lai (1<n<100)
+    // Cách 1
+    // let tuoi;
+    // do {
+    // tuoi = parseInt(prompt("Nhập vào số tuổi"))
+    // } while (tuoi > 100 || tuoi < 1);
+    // Cách2
+    let a;
+    do {
+        a = parseInt(prompt("Nhập số tuổi"))
+        if (a < 1 && a > 100) {
+            prompt("Nhập lại số tuổi")
+        }
+    } while (a<1||a>100);
+    document.write("Tuổi của bạn là: " +a)
+</script>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Xây dựng chương trình có một ô Input, một button
+. Khi click vào button thì in các số từ 1 tới giá trị của ô input-->
+<h3>Bài 1</h3>
+<input placeholder="Nhập sô ngẫu nhiên" id="sobai1"><br>
+<input type="button" onclick="inrabai1()" id="bai1" value="Kết quả">
+<div id="ketqua"></div>
+<!--Viết chương trình có một ô input, một button.
+ Khi click vào button thì in ra các số nguyên tố từ 1 tới giá trị của ô input-->
+<h3>Bài 2</h3>
+<input placeholder="Nhập sô ngẫu nhiên" id="sobai2"><br>
+<input type="button" onclick="inrabai2()" id="bai2" value="Kết quả">
+</body>
+</html>
+<script>
+    //hàm bài 1
+    function inrabai1() {
+        let sobai1 = parseFloat(document.getElementById("sobai1").value);
+        for (let i = 1; i <= sobai1; i++) {
+            document.write("Số: " + i + "<br>");
+        }
+    }
+
+    // hàm bài 2
+    function inrabai2() {
+        let i;
+        let sobai2 = parseFloat(document.getElementById("sobai2").value);
+        if (sobai2 < 2) {
+            document.write("Hãy nhập lại");
+        } else if (sobai2 === 2) {
+            document.write( "số nguyên tố là: "+sobai2 );
+        } else {
+            for (i = 3; i <= sobai2 && sobai2 % i === 0; i++) {
+                document.write(i)
+            }
+        }
+    }
+</script>
