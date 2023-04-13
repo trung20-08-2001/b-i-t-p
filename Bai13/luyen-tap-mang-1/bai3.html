@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào các số để tạo mảng sau khi nhấn một số thì click vào ADD</p>
+<p>Tôi sẽ hiển thị ra các số lớn nhất trong mảng và trung bình cộng các số cho bạn </p>
+<input id="input">
+<input type="button" value="ADD" onclick="add()">
+<input type="button" value="Tính" onclick="tinh()"><br><br>
+<div id="ketqua"></div>
+
+</body>
+</html>
+<script>
+   //Bài 3- Viết chương trình khởi tạo mảng số nguyên.
+   // Hiển hiện giá trị lớn nhất trong mảng đó.
+   // In ra giá trị trung bình của các phần tử trong mảng
+  let arr = [];
+  let dem = 0;
+  let i;
+
+  function add() {
+    let a = document.getElementById("input");
+    let input = parseInt(a.value);
+    arr.push(input);
+    a.value="";
+
+  }
+
+  function tinh() {
+    let max = arr[0];
+    let tong=0;
+    for (i = 0; i < arr.length; i++) {
+      tong += arr[i]
+      if (arr[i] > max) {
+        max = arr[i];
+      }
+    }
+    document.getElementById("ketqua").innerHTML = "Số lớn nhất là: " + max + "<br>"
+            + "Trung bình cộng các số là: " + tong / (arr.length)+"<br>"+"Đây là mảng bạn đã nhập vào: "+arr
+  }
+
+
+</script>

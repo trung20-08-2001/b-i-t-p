@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Đảo ngược mảng</p>
+<input placeholder="Nhập mảng" id="input">
+<button onclick="ketqua()">Đảo</button>
+<p>Mảng sau khi đảo sẽ là: <span id="display"></span></p>
+</body>
+</html>
+<script>
+    //Bài 2: Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.
+    //Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"
+    function ketqua() {
+        let input = document.getElementById("input").value;
+        let arr = [];
+        arr = input.split(",");
+        for (let i = 0; i < arr.length/2; i++) {
+            let bien = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1 - i] = bien;
+        }
+        document.getElementById("display").innerHTML=arr
+
+    }
+
+
+</script>

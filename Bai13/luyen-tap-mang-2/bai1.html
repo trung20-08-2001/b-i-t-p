@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Bài 1: Viết chương trình khởi tạo mảng 2 chiều,
+    // gồm một bộ các phần tử có sẵn,
+    // in ra các phần tử trong mảng.
+    // Chú ý: Sử dụng vòng lặp for lồng nhau
+    let arr = [["1", "4", "4", "67"],
+        ["23", "2", "67", "23"],
+        ["90", "12"]];
+    for (let i = 0; i < arr.length; i++) {
+        document.write("row" +i +"<br>")
+        for (let j=0;j<arr[i].length;j++) {
+            document.write(arr[i][j] +"<br>")
+        }
+
+    }
+</script>

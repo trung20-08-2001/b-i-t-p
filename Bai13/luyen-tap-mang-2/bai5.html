@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Kiểm tra xem hai chuỗi có giống nhau không</p>
+<input placeholder="Nhập chuỗi thứ nhất" id="input"><br><br>
+<input placeholder="Nhập chuỗi thứ hai" id="input2"><br><br>
+<button onclick="ketqua()">Kết quả</button>
+<div id="display"></div>
+</body>
+</html>
+<script>
+    //Bài 5: Viết một chương trình nhập vào 2 chuỗi,
+    // sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
+    function ketqua() {
+        let input = document.getElementById("input").value;
+        let input2 = document.getElementById("input2").value;
+        let a = [];
+        let b = [];
+        a = input.toString().split("");
+        b = input2.toString().split("");
+
+
+            for (let i=0,j = 0; j < b.length || i<a.length;i++, j++) {
+                if (a[i] !== b[j]) {
+                    document.getElementById("display").innerHTML = "Hai chuỗi khác nhau";
+                } else {
+                    document.getElementById("display").innerHTML = "Hai chuỗi giống nhau";
+
+                }
+            }
+    }
+</script>

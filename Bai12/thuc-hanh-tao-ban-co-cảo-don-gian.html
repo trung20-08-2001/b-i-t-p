@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            font-size: 50px
+        }
+
+        input {
+            width: 50px;
+            text-align: center
+        }
+
+        button {
+            position: absolute;
+            left: 40px
+        }
+        div {color: chartreuse}
+    </style>
+</head>
+<body>
+<h1>Cờ caro</h1>
+<div id="display"></div>
+<br>
+<button onclick="doi()">Change Value</button>
+</body>
+</html>
+<script>
+    let caro = [["0", "0", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"],
+        ["0", "0", "0", "0", "0"]];
+
+    let ve = ""
+hienthi()
+    function hienthi() {
+        for (let i = 0; i < caro.length; i++) {
+            for (let j = 0; j < caro[i].length; j++) {
+                ve += caro[i][j] + " "
+            }
+            ve += "<br>"
+        }
+        document.getElementById("display").innerHTML = ve;
+    }
+
+    function doi() {
+        let a = prompt("Nhập hàng bạn chọn");
+        let b = prompt("Nhập cột bạn chọn");
+        let c = prompt("Bạn muốn đánh O hay X");
+        caro[a - 1][b - 1] = c;
+        ve=""
+        hienthi()
+
+    }
+
+</script>

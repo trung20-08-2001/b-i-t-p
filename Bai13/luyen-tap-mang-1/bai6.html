@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> </title>
+</head>
+<body>
+<p>Nhập vào các số để tạo mảng sau khi nhấn một số thì click vào ADD</p>
+<p>Tôi sẽ tìm số mà bạn nhập trong ô input thứ hai có trong mảng hay không</p>
+<input id="input" placeholder="Nhập số để tạo mảng tại đây" style="width: 200px" ><br><br>
+<input id="input2" placeholder="Nhập số để tìm kiếm tại đây" style="width: 200px"><br><br>
+
+<input type="button" value="ADD" onclick="add()">
+<input type="button" value="Tìm" onclick="tim()"><br><br>
+<div id="ketqua"></div>
+
+</body>
+</html>
+<script>
+    //Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo phần tử số nguyên V.
+    // Chương trình tìm xem V có nằm trong mảng số nguyên không?
+    // Nếu V thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+    let arr=[];
+    let i;
+    let check=false
+    function add() {
+        let input1=document.getElementById("input");
+        let phantu=parseFloat(input1.value);
+        arr.push(phantu);
+        input1.value=""
+    }
+    function tim() {
+        let input2=document.getElementById("input2");
+        let tim=parseFloat(input2.value);
+        for (i=0;i<arr.length;i++) {
+            if (tim===arr[i]) {
+                check=true;
+                break;
+            }
+        }
+        if (check===true) {
+            document.getElementById("ketqua").innerHTML = "Trong mảng có tồn tại " + tim;
+        } else {
+            document.getElementById("ketqua").innerHTML = "Trong mảng không tồn tại " + tim;
+        }
+    }
+</script>

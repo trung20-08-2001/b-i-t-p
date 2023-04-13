@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+        11, 12, 13, 14, 15, 15, 16, 17, 18, 19,
+        20, 21, 22, 23, 24, 25, 26, 27, 28, 29,30]
+    let a=parseInt(prompt("Nhập sô bất kì"));
+    let i;
+    let kiemtra;
+    for (i=0;i<arr.length;i++) {
+        if (a===arr[i]) {
+            kiemtra=true;
+        }
+    }
+    if (kiemtra===true) {
+        document.write("Trong mảng có số "+a)
+
+    } else {
+        document.write("Trong mảng không có số "+a)
+
+    }
+</script>

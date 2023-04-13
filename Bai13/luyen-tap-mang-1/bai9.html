@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Cộng hai mảng rồi hiển thị ra</p>
+<input placeholder="Nhập mảng thứ nhất" id="input"><br><br>
+<input placeholder="Nhập mảng thứ hai" id="input2"><br><br>
+<button onclick="ketqua()">Kết quả</button>
+<div id="display"></div>
+</body>
+</html>
+<script>
+  //Bài 9- Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+  // Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+  // Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.
+function ketqua() {
+    let input=document.getElementById("input").value;
+    let input2=document.getElementById("input2").value;
+    let a=[];
+    let b=[];
+    let c=[];
+    a=input.split(",");
+    b=input2.split(",");
+    c=a.concat(b)
+    document.getElementById("display").innerHTML="Mảng mới là: "+c
+}
+</script>

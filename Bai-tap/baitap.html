@@ -12,7 +12,7 @@
 <input type="button" onclick="inrabai1()" id="bai1" value="Kết quả">
 <div id="ketqua"></div>
 <!--Viết chương trình có một ô input, một button.
- Khi click vào button thì in ra các số nguyên tố từ 1 tới giá trị của ô input-->
+ Khi click vào button thì in ra xem số nhập vào có phải là số nguyên tố không-->
 <h3>Bài 2</h3>
 <input placeholder="Nhập sô ngẫu nhiên" id="sobai2"><br>
 <input type="button" onclick="inrabai2()" id="bai2" value="Kết quả">
@@ -29,16 +29,19 @@
 
     // hàm bài 2
     function inrabai2() {
-        let i;
         let sobai2 = parseFloat(document.getElementById("sobai2").value);
-        if (sobai2 < 2) {
-            document.write("Hãy nhập lại");
-        } else if (sobai2 === 2) {
-            document.write( "số nguyên tố là: "+sobai2 );
-        } else {
-            for (i = 3; i <= sobai2 && sobai2 % i === 0; i++) {
-                document.write(i)
+        let i;
+        let kiemtra=true;
+        for (i=2;i<sobai2;i++) {
+            if (sobai2%i===0) {
+                kiemtra=false;
+                break;
             }
+        }
+        if (kiemtra===true) {
+            document.write(sobai2+" là số nguyên tố");
+        }else {
+            document.write(sobai2+" không là số nguyên tố")
         }
     }
 </script>

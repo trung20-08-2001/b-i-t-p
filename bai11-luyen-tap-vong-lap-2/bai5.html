@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Tính lãi ngân hàng</h3>
+<form>
+    <strong>Hãy chọn cách gửi:</strong>
+    <br><br>
+    <select id="cach">
+        <option id="co">Có kì han</option>
+        <option id="khong">Không kì hạn</option>
+    </select>
+    <br><br>
+    <input id="tien" placeholder="Nhập số tiền bạn gửi">
+    <br><br>
+    <input placeholder="Nhập số tháng bạn muốn gửi" id="thang">
+    <br><br>
+    <input placeholder="Nhập lãi suất %" id="laisuat">
+    <br><br>
+    <input placeholder="Tiền lãi" id="tienlai">
+    <br><br>
+    <button type="button" onclick="tinh()">Tính</button>
+    <button type="reset">Xóa</button>
+</form>
+<!--Công thức tính lãi suất ngân hàng không kỳ hạn như sau:
+    Số tiền lãi = Số tiền gửi x lãi suất (%/năm) x số ngày thực gửi/360
+*Cách tính lãi suất ngân hàng có kỳ hạn
+   Số tiền lãi theo tháng = Số tiền gửi x lãi suất (%năm)/12 x số tháng gửi-->
+</body>
+</html>
+<script>
+    function tinh() {
+        let a=document.getElementById("cach").value;
+        let b=parseFloat(document.getElementById("tien").value);
+        let c=parseFloat(document.getElementById("thang").value);
+        let d=parseFloat(document.getElementById("laisuat").value);
+        let tienlai=document.getElementById("tienlai");
+        if (a==="có kì hạn") {
+            tienlai.value=(b*d/1200)*c;
+        } else {
+            tienlai.value=(b*d/100)*(30*c)/360;
+        }
+    }
+</script>

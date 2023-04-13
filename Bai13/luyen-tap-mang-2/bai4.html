@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào một chuỗi sau đó sẽ in ra số lượng kí tự trong chuỗi</p>
+<input placeholder="Nhập chuỗi kí tự" id="input">
+<button onclick="ketqua()">Tính</button>
+<p>Chuỗi đã nhập vào có <span id="display"></span> kí tự</p>
+</body>
+</html>
+<script>
+    //Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
+    function ketqua() {
+        let input=document.getElementById("input").value;
+        let arr=[];
+        arr=input.toString().split("");
+        document.getElementById("display").innerHTML=arr.length;
+    }
+</script>

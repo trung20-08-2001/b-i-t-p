@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let n = parseFloat(prompt("Bạn muốn hiển thị ra bao nhiêu số"))
+    let a = 0;
+    let b = 1;
+    let dem = 2;
+    let c;
+    document.write(a + "<br> " + b + "<br>");
+    for (; dem < n;) {
+        c=a+b;
+        document.write(c+"<br>");
+        a=b;
+        b=c;
+        dem+=1;
+    }
+</script>

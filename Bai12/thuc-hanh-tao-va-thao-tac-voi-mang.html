@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input">
+<button id="add" onclick="add()">Add</button>
+<button id="display" onclick="display()">Display</button>
+<div id="hienthi"></div>
+</body>
+</html>
+<script>
+
+    let mang = [];
+
+    function add() {
+        let input = document.getElementById("input").value;
+        mang.push(input);
+        alert("Đã thêm " + input + " vào mảng")
+    }
+
+    function display() {
+        let i;
+        let ketqua = "";
+        for (i = 0; i < mang.length; i++) {
+            ketqua += "Element " + i + "=" + mang[i] + "<br>"
+        }
+        document.getElementById("hienthi").innerHTML = ketqua;
+    }
+</script>

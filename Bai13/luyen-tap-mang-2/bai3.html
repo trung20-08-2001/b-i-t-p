@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>In ra mảng và độ dài của mảng</p>
+<input placeholder="Nhập mảng kí tự" id="input">
+<button onclick="ketqua()">Tính</button>
+<p>Mảng đã nhập vào là: <span id="display"></span></p>
+<p>Mảng đã nhập vào có <span id="display2"></span> phần tử </p>
+</body>
+</html>
+<script>
+    //Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+    // Chương trình này đếm số ký tự số trong mảng.
+    function ketqua() {
+        let input=document.getElementById("input").value;
+        let arr=[];
+        arr=input.split(",")
+        document.getElementById("display").innerHTML=arr;
+        document.getElementById("display2").innerHTML=arr.length;
+    }
+</script>

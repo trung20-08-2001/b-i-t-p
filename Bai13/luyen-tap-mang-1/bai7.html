@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {width: 300px}
+    </style>
+</head>
+<body>
+<input placeholder="Nhập mảng tại đây" id="input"><br><br>
+<input placeholder="Nhập phần tử cần xóa đi trong mảng" id="xoa">
+<br><br>
+<button onclick="ketqua()">Kết quả</button>
+<div id="display"></div>
+</body>
+</html>
+<script>
+    //Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên
+    // gồm 10 phần tử, nhập/tạo phần tử số nguyên V. Chương trình
+    // kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc mảng
+    // đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch
+    // phần tử ở bên phải V sang vị trí của V, và gán 0 cho phần tử
+    // cuối cùng của mảng)
+    function ketqua() {
+        let arr = []
+        let input = document.getElementById("input").value;
+        arr = input.split(",")
+        let xoa = document.getElementById("xoa").value;
+        let vitri = 0;
+        let kiemtra;
+        for (let i = arr.length-1; i>=0; i--) {
+            if (arr[i] === xoa) {
+                kiemtra = true;
+                arr.splice(i, 1,);
+            }
+        }
+        if (kiemtra) {
+            document.getElementById("display").innerHTML = "Tôi đã xóa đi phần tử " + xoa + " trong mảng. Đây là mảng mới của bạn: " + arr;
+        } else {
+            document.getElementById("display").innerHTML = "Trong mảng không có phần tử " + xoa;
+        }
+    }
+
+
+</script>

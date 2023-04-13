@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào các phần tử để tạo mảng sau khi nhấn một phần tử thì click vào ADD</p>
+<p>Tôi sẽ đảo ngược trật tự các phần tử cho bạn </p>
+<input id="input">
+<input type="button" value="ADD" onclick="add()">
+<input type="button" value="Đảo" onclick="dao()"><br><br>
+<div id="ketqua"></div>
+</body>
+</html>
+<script>
+   //Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên
+   // và đảo ngược các phần tử trong mảng đó.
+   let mang=[];
+   let i;
+   let a;
+   function add() {
+       let input=document.getElementById("input");
+       let phantu=input.value;
+       mang.push(phantu);
+       input.value="";
+   }
+   function dao() {
+       for(i=0;i<mang.length/2;i++) {
+         a=mang[i];
+         mang[i]=mang[mang.length-1-i];
+         mang[mang.length-1-i]=a;
+
+       }
+       document.getElementById("ketqua").innerHTML="Sau khi đảo mảng của bạn sẽ là: "+mang;
+   }
+</script>

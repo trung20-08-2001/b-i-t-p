@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào các số tự nhiên để tạo mảng sau khi nhấn một số thì click vào ADD</p>
+<p>Tôi sẽ hiển thị ra các số nguyên âm cho bạn</p>
+<input id="input">
+<input type="button" value="ADD" onclick="add()">
+<input type="button" value="Đếm" onclick="dem()"><br><br>
+<div id="ketqua"></div>
+</body>
+</html>
+<script>
+    //Bài 5- Viết chương trình đếm số nguyên âm trong một chuỗi
+    let mang=[];
+    let i;
+    let count=0;
+    function add() {
+        let input=document.getElementById("input");
+        let phantu=parseInt(input.value);
+        mang.push(phantu);
+    }
+    function dem() {
+        for (i=0;i<mang.length;i++) {
+            if(mang[i]<0) {
+                count+=1
+            }
+        }
+        document.getElementById("ketqua").innerHTML="Trong mảng có "+count+" số nguyên âm"
+    }
+</script>

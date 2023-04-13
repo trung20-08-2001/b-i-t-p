@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Từ điển tiếng anh</h3>
+<input placeholder="Nhập từ tiếng anh cần tìm" id="input">
+<button onclick="tim()">Tìm</button>
+<p id="hienthi"></p>
+</body>
+</html>
+<script>
+    //Phát triển một ứng dụng từ điển đơn giản.
+    // Ứng dụng cho phép tra cứu các từ tiếng Anh sang tiếng Việt.
+    // Danh sách các từ được lưu trữ trong các mảng.
+    function tim() {
+        let a = ["apple", "orange", "banana", "grape", "grapefruit", "starfruit", "mango", "pineapple", "avocado", "mandarin"];
+        let b = ["táo", "cam", "chuối", "nho", "bưởi", "khế", "xoài", "dứa", "bơ", "quýt"];
+        let ketqua = "";
+        let dich = document.getElementById("input").value.toLowerCase();
+        for (let i = 0; i < a.length; i++) {
+            if (a[i].toLowerCase() === dich) {
+                ketqua = dich + " nghĩa là " + b[i];
+                break;
+            }
+            if (a[i] !== dich) {
+                ketqua = "Xin lỗi từ bạn tìm không có trong từ điển chúng tôi sẽ sớm cập nhật cho bạn."
+            }
+        }
+        document.getElementById("hienthi").innerHTML = ketqua;
+    }
+</script>

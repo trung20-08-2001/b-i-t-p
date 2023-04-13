@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào các phần tử tôi sẽ giúp bạn sắp sếp theo thứ tự giảm dần</p>
+<input placeholder="Nhập tại đây" id="input">
+ <button onclick="ketqua()">Kết quả</button>
+<div id="display"></div>
+</body>
+</html>
+<script>
+  //Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+  // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+  function ketqua() {
+      let arr=[]
+      let input=document.getElementById("input").value;
+      arr=input.split(",");
+      arr.sort(function (a,b){return(b-a)});
+      document.getElementById("display").innerHTML="Thứ tự giảm dần là: " +arr;
+  }
+</script>

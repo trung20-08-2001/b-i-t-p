@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+  let dem=0;
+  let kiemtra;
+  let n=prompt("Số lượng số nguyên tố bạn muốn hiển thị:");
+  for (let i=2;dem<n;i++) {
+      kiemtra = true;
+      for (let j = 2; j < i; j++) {
+          if (i % j === 0) {
+              kiemtra = false;
+              break;
+          }
+      }
+      if (kiemtra) {
+          dem = dem + 1;
+          document.write(i+"<br>");
+      }
+  }
+</script>

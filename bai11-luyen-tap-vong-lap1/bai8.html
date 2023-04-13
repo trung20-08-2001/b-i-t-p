@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="game()">Start</button>
+</body>
+</html>
+<script>
+  function game() {
+      let a = parseInt(prompt("Hãy chọn khoảng mà bạn muốn đoán"));
+      let socandoan = Math.floor(Math.random() * a) + 1;
+      let solandoan = 0;
+      while (true) {
+          let sobandoan = parseInt(prompt("Hãy nhập số mà bạn đoán"));
+          if (sobandoan === socandoan) {
+              alert("Xin chúc mừng. Bạn đã đoán đúng");
+              break;
+          } else if (sobandoan < socandoan) {
+              solandoan += 1;
+              alert("Hãy tăng giá trị lên nào");
+          } else if (sobandoan > socandoan) {
+              solandoan += 1;
+              alert("Hãy giảm giá trị nào");
+          }
+          if (solandoan > 3) {
+              alert("Bạn đã thua do nhập nhiều lần mà chưa đúng");
+              break;
+          }
+      }
+  }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào các số để tạo mảng</p>
+<p>Tôi sẽ hiển thị ra các số lớn hơn 10 cho bạn</p>
+<input id="input" placeholder="Nhập mảng tại đây">
+<br><br>
+<input type="button" value="Tính" onclick="tinh()"><br><br>
+<div id="ketqua"></div>
+
+</body>
+</html>
+<script>
+    ///Bài 1- Viết chương trình khởi tạo mảng số nguyên gồm 10 phần tử.
+    // Chương trình thực hiện tính và hiển thị xem có bao nhiêu số nguyên lớn hơn hoặc bằng 10.
+    let arr = [];
+    let dem = 0;
+    let ketqua="";
+
+    function tinh() {
+        let a = document.getElementById("input");
+        let input =a.value;
+        arr=input.split(",")
+        let i;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                ketqua+=arr[i]+"<br> ";
+                dem += 1;
+            }
+        }
+        document.getElementById("ketqua").innerHTML="Trong mảng có " + dem +" số lớn hơn 10:"+"<br>"+ketqua
+
+    }
+
+
+
+</script>

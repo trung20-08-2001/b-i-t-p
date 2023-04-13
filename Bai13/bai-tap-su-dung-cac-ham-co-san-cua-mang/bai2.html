@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Nhập vào dãy bất kì</h3>
+<p>Click vào Add để tạo mảng</p>
+<input id="input" placeholder="Nhập vào dãy số"><br>
+<button id="ketqua" onclick="hienthi()">Kết quả</button><br>
+<p id="hienthi"></p>
+</body>
+</html>
+<script>
+    // Bài 2: Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2  số chẵn.
+    //   Ví dụ nếu bạn nhập vào 025468 thì kết quả của chương trình sẽ là 0-254-6-8.
+    let mang = [];
+    let i;
+    let ketqua = [];
+    function hienthi() {
+        let input = document.getElementById("input");
+        let phantu = parseInt(input.value)
+        mang = phantu.toString().split("");
+        ketqua.push(mang[0]);
+        for (i = 1; i < mang.length; i++) {
+            if ((mang[i-1] % 2 === 0) && (mang[i] % 2 === 0)) {
+                ketqua.push("-", mang[i]);
+            } else {
+                ketqua.push(mang[i]);
+            }
+        }
+        document.getElementById("hienthi").innerHTML = ketqua.join("");
+
+    }
+
+
+</script>
