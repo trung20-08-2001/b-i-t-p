@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Chuyển đổi giữa feet và meters</h3>
+<input placeholder="Nhập giá trị muốn đổi" id="input">
+<select id="befor">
+    <option>M</option>
+    <option>F</option>
+</select>
+<br><br>
+<input placeholder="Kết quả" id="output">
+<select id="after">
+    <option>M</option>
+    <option>F</option>
+</select>
+<br><br>
+<button onclick="doii()">Đổi</button>
+</body>
+</html>
+<script>
+    function doi() {
+        let m;
+        let f;
+        let input=parseInt(document.getElementById("input").value);
+        let befor=document.getElementById("befor").value;
+        let after=document.getElementById("after").value;
+        if (befor===after) {
+            document.getElementById("output").value=input;
+        } else if (befor==="M" && after==="F") {
+            f=3.279*input;
+            document.getElementById("output").value=f;
+        } else if (befor==="F" && after==="M") {
+            m=0.305*input;
+            document.getElementById("output").value=m;
+
+        }
+    }
+    //chán onclik thì oniput
+</script>

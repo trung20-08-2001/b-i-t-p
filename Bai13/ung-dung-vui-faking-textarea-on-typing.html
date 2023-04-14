@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {text-align: center}
+    </style>
+</head>
+<body>
+<h1>Faking Textarea on Typing</h1>
+<textarea onkeydown="writee()" id="input" style="height: 100px;width: 360px"></textarea>
+
+</body>
+</html>
+<script>
+    function writee() {
+        let arr= new Array();
+        let n=""
+        arr[1]="I";arr[2]="N";arr[3]="P";arr[4]="U";arr[5]="T";arr[6]="!";
+        let a=document.getElementById("input").value;
+        let dodai=a.length;
+        if (dodai>0) {
+            for (let i=1;i<=dodai;i++) {
+                n+=arr[i];
+                if (i===6) {
+                    document.getElementById("input").value="";
+                    n=""
+                }
+            }
+        }
+        document.getElementById("input").value=n;
+        setTimeout("writee()",1);
+    }
+</script>

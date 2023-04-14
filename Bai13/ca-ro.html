@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            font-size: 30px
+        }
+
+        body {
+            text-align: center
+        }
+
+        button {
+            width: 400px;
+            height: 50px;
+            font-size: 45px
+        }
+
+        strong {
+            font-size: 45px;
+        }
+    </style>
+</head>
+<body>
+<strong>Cờ Caro</strong>
+<div id="display"></div>
+<button onclick="di()">Change Value</button><button onclick="chienthang()">Check</button>
+</body>
+</html>
+<script>
+    let arr = new Array(18)
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = ["-", "-", "-", "-", "-", "-", "-", "-", "-",
+            "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+            "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+            "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
+            "-", "-", "-", "-", "-"]
+    }
+    let caro = "";
+    hienthicaro()
+
+    function hienthicaro() {
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                caro += arr[i][j] + "&nbsp;&nbsp;&nbsp"
+            }
+            caro += "<br>";
+            document.getElementById("display").innerHTML = caro;
+        }
+    }
+
+    let luotchoi = 1;
+
+    function di() {
+        let a = prompt("Nhập hàng");
+        let b = prompt("Nhập cột");
+        if (luotchoi % 2 === 0) {
+            arr[a - 1][b - 1] = "X";
+        } else if (luotchoi % 2 === 1) {
+            arr[a - 1][b - 1] = "O";
+        }
+        luotchoi++
+        caro = "";
+        hienthicaro();
+    }
+    chienthang()
+function chienthang() {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] === "X" && arr[i][j + 1] === "X" && arr[i][j + 2] === "X" && arr[i][j + 3] === "X" && arr[i][j + 4] === "X" ||
+                arr[i][j] === "X" && arr[i + 1][j] === "X" && arr[i + 2][j] === "X" && arr[i + 3][j] === "X" && arr[i + 4][j] === "X" ||
+                arr[i][j] === "X" && arr[i + 1][j + 1] === "X" && arr[i + 2][j + 2] === "X" && arr[i + 3][j + 3] === "X" && arr[i + 4][j + 4] === "X") {
+                alert("X thắng")
+            }
+            if (arr[i][j] === "O" && arr[i][j + 1] === "O" && arr[i][j + 2] === "O" && arr[i][j + 3] === "O" && arr[i][j + 4] === "O" ||
+                arr[i][j] === "O" && arr[i + 1][j] === "O" && arr[i + 2][j] === "O" && arr[i + 3][j] === "O" && arr[i + 4][j] === "O" ||
+                arr[i][j] === "O" && arr[i + 1][j + 1] === "O" && arr[i + 2][j + 2] === "O" && arr[i + 3][j + 3] === "O" && arr[i + 4][j + 4] === "O") {
+                alert("O thắng")
+            }
+        }
+    }
+}
+</script>
