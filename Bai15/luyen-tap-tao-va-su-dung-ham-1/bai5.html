@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="display"></div>
+</body>
+</html>
+<script>
+    let tenngoisao = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let tenchomsao = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function bai5() {
+        let ketqua = false;
+        let chomsao = "";
+        let input = prompt("Nhập tên ngôi sao");
+        for (let i = 0; i < tenngoisao.length; i++) {
+            if (input.toUpperCase() === tenngoisao[i].toUpperCase()) {
+                chomsao = tenchomsao[i];
+                ketqua = true;
+                break;
+            }
+        }
+        if (ketqua) {
+            document.getElementById("display").innerHTML = input + " thuộc chòm sao " + chomsao;
+
+        } else {
+            document.getElementById("display").innerHTML = "Xin lỗi tôi không tìm thấy"
+        }
+
+    }
+
+    bai5()
+</script>

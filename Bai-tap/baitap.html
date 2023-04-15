@@ -22,9 +22,17 @@
     //hàm bài 1
     function inrabai1() {
         let sobai1 = parseFloat(document.getElementById("sobai1").value);
-        for (let i = 1; i <= sobai1; i++) {
-            document.write("Số: " + i + "<br>");
+        if (sobai1>0) {
+            for (let i = 1; i <= sobai1; i++) {
+                document.getElementById("ketqua").innerHTML += "Số: " + i + "<br>";
+            }
         }
+        if (sobai1<=1) {
+            for (let i=1;i>=sobai1;i--) {
+                document.getElementById("ketqua").innerHTML += "Số: " + i + "<br>";
+            }
+        }
+
     }
 
     // hàm bài 2
