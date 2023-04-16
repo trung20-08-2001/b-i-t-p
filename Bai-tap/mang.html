@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        input {width: 200px}
+    </style>
 </head>
 <body>
 <p>Tìm số lớn thứ n trong mảng</p>
-<input placeholder="Nhập các số để tạo mảng" id="input">
-<input placeholder="Bạn muốn tìm số lớn thứ mấy" id="socantim">
+<input placeholder="Nhập các số để tạo mảng" id="input"><br><br>
+<input placeholder="Bạn muốn tìm số lớn thứ mấy" id="socantim" ><br><br>
 <button onclick="tim()">Tìm</button>
+<p>Kết quả: <span id="display"></span></p>
 </body>
 </html>
 <script>
@@ -50,39 +54,46 @@
 <script>
     //Tìm số lớn thứ n trong mảng
     function tim() {
-        let count=0
         let temp;
         let arr = [];
         let input = document.getElementById("input").value;
         let socantim=document.getElementById("socantim").value;
         arr = input.split(",");
-        for (let i = 1; i<= arr.length - 1; i++) {    //sắp sếp giảm dần
-            for (let j = 0; j < arr.length-i; j++) {
-                if (arr[j] < arr[j + 1]) {
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    count+=1
-                }
-
-            }
-        }
         let arr2=[];          //kiểm tra khác nhau thì cho vào mảng mới
         let a=0;
-        let check;
-        for (let i=0;i<arr.length-1;i++) {
+        let b=0;
+        for (let i=0;i<arr.length;i++) {
+            let check=false;
             for (let j=i+1;j<arr.length;j++) {
-                if (arr[i] !== arr[j]) {
-                    check=true;    //không có trùng
-                }else {
-                    check=false   //có trùng
+                if (arr[i] === arr[j]) {
+                    check=true;
+                    break;
                 }
             }
-            if (check) {
+            if (!check) {
                 arr2[a]=arr[i];
                 a++;
             }
         }
-        alert(arr2)
+        let arr3=[];                       //ép mảng hai về số nguyên đưa vào mảng 3
+        for (let i=0;i<arr2.length;i++) {
+            arr3[b]=parseInt(arr2[i]);
+            b++;
+        }
+        for (let i = 1; i<= arr3.length - 1; i++) {    //sắp sếp mảng 3 giảm dần nổi bọt
+            for (let j = 0; j < arr3.length-i; j++) {
+                if (arr3[j] < arr3[j + 1]) {
+                    temp = arr3[j];
+                    arr3[j] = arr3[j + 1];
+                    arr3[j + 1] = temp;
+                }
+            }
+        }
+        if (socantim>arr3.length) {
+            document.getElementById("display").innerHTML="Bạn chỉ nhập cho tôi " +arr3.length+" " +
+                "giá trị không thể tìm ra số lớn thứ "+socantim+" được."
+        } else {
+            document.getElementById("display").innerHTML="Số lớn thứ "+socantim+" trong mảng là "+ arr3[socantim-1];
+        }
     }
 </script>
