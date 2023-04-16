@@ -3,8 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <style>
+        #display {text-align: center; color: red;}
+        body {background:lightgreen}
+    </style>
 </head>
 <body>
+<div id="display"></div>
 </body>
 </html>
+<script>
+    let a=prompt("Nhập vào kí tự bất kì nên chọn kí tự có đối xứng thì sẽ đẹp hơn")
+    let tim=""
+    //vẽ phần trên
+    for (let i=3;i<=10;i++) {
+        for (let j=1;j<=40;j++) {
+            if (j>20/2-i&&j<20/2+i ||j>20+20/2-i&&j<20+20/2+i) {
+                tim+=a
+            } else {
+                tim+="&nbsp"
+            }
+        }
+        tim+="<br>"
+    }
+    //vẽ phần dưới
+    for (let i=1;i<20;i++) {
+        for (let j=1;j<=40;j++) {
+            if (j>=i &&j<=40-i ) {
+                tim+=a
+            } else {
+                tim+="&nbsp"
+            }
+        }
+        tim+="<br>"
+    }
+    document.getElementById("display").innerHTML=tim;
+
+</script>
