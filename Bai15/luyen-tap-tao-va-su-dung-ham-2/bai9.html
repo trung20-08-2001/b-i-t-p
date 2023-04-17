@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //Bài 9: Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ,
+  // kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+  // Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.
+  function checkkitu(arr,char) {
+      let count=0;
+      let ketqua="";
+      for (let i=0;i<arr.length;i++) {
+          if (char===arr[i]) {
+              count+=1;
+          }
+      }
+      if (count>0) {
+          ketqua+=char +" xuất hiện "+count+" lần trong mảng";
+      }else {
+          ketqua+="-1"
+      }
+      document.write(ketqua)
+  }
+  let arr=["a","s","d","f","g","h","j","k","l","d"]
+  checkkitu(arr,"d")
+</script>
