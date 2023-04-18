@@ -10,7 +10,16 @@
 </html>
 <script>
     //Xây dựng chương trình sử dụng đệ quy để kiểm tra một từ có phải là từ đối xứng không.
-    function checkdx(char) {
-        
+    function checkdx(word) {
+        if (word.length < 2) {
+            return true;
+        } else if (word[0] === word[word.length - 1]) {
+            return checkdx(word.slice(1, -1));
+        } else {
+            return false;
+        }
     }
+   let c= checkdx("zxccxzl");
+    alert(c)
+
 </script>
