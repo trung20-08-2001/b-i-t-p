@@ -26,7 +26,8 @@
 <body>
 <strong>Cờ Caro</strong>
 <div id="display"></div>
-<button onclick="di()">Change Value</button><button onclick="chienthang()">Check</button>
+<button onclick="di()">Change Value</button>
+<button onclick="chienthang()">Check</button>
 </body>
 </html>
 <script>
@@ -38,10 +39,10 @@
             "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
             "-", "-", "-", "-", "-"]
     }
-    let caro = "";
     hienthicaro()
 
     function hienthicaro() {
+        let caro = "";
         for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < arr[i].length; j++) {
                 caro += arr[i][j] + "&nbsp;&nbsp;&nbsp"
@@ -54,32 +55,62 @@
     let luotchoi = 1;
 
     function di() {
-        let a = prompt("Nhập hàng");
-        let b = prompt("Nhập cột");
+        let a;
+        let b;
+        let check;
+        do {
+            check = true;
+            a = prompt("Nhập hàng");
+            b = prompt("Nhập cột");
+            if (a <= 0 || b <= 0 || a > arr.length || b > arr.length || a > arr[0].length || b > arr[0].length) {
+                alert("Bạn đã chọn vị trí không hợp lệ hãy chọn lại ");
+                check = false;
+            } else if (arr[a - 1][b - 1] === "X" || arr[a - 1][b - 1] === "O") {
+                alert("Vị trí đã được chọn, hãy chọn vị trí khác ");
+                check = false;
+            }
+        } while (check === false)
+
         if (luotchoi % 2 === 0) {
             arr[a - 1][b - 1] = "X";
         } else if (luotchoi % 2 === 1) {
             arr[a - 1][b - 1] = "O";
         }
         luotchoi++
-        caro = "";
         hienthicaro();
     }
-    chienthang()
-function chienthang() {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr[i].length; j++) {
-            if (arr[i][j] === "X" && arr[i][j + 1] === "X" && arr[i][j + 2] === "X" && arr[i][j + 3] === "X" && arr[i][j + 4] === "X" ||
-                arr[i][j] === "X" && arr[i + 1][j] === "X" && arr[i + 2][j] === "X" && arr[i + 3][j] === "X" && arr[i + 4][j] === "X" ||
-                arr[i][j] === "X" && arr[i + 1][j + 1] === "X" && arr[i + 2][j + 2] === "X" && arr[i + 3][j + 3] === "X" && arr[i + 4][j + 4] === "X") {
-                alert("X thắng")
-            }
-            if (arr[i][j] === "O" && arr[i][j + 1] === "O" && arr[i][j + 2] === "O" && arr[i][j + 3] === "O" && arr[i][j + 4] === "O" ||
-                arr[i][j] === "O" && arr[i + 1][j] === "O" && arr[i + 2][j] === "O" && arr[i + 3][j] === "O" && arr[i + 4][j] === "O" ||
-                arr[i][j] === "O" && arr[i + 1][j + 1] === "O" && arr[i + 2][j + 2] === "O" && arr[i + 3][j + 3] === "O" && arr[i + 4][j + 4] === "O") {
-                alert("O thắng")
+
+
+    function chienthang() {
+        let xwin = false;
+        let owin = false
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] === "X" && arr[i][j + 1] === "X" && arr[i][j + 2] === "X" && arr[i][j + 3] === "X" && arr[i][j + 4] === "X" ||
+                    arr[i][j] === "X" && arr[i + 1][j] === "X" && arr[i + 2][j] === "X" && arr[i + 3][j] === "X" && arr[i + 4][j] === "X" ||
+                    arr[i][j] === "X" && arr[i + 1][j + 1] === "X" && arr[i + 2][j + 2] === "X" && arr[i + 3][j + 3] === "X" && arr[i + 4][j + 4] === "X" ||
+                    arr[i][j] === "X" && arr[i + 1][j - 1] === "X" && arr[i + 2][j - 2] === "X" && arr[i + 3][j - 3] === "X" && arr[i + 4][j - 4] === "X") {
+                    xwin = true;
+                }
+
+                if (arr[i][j] === "O" && arr[i][j + 1] === "O" && arr[i][j + 2] === "O" && arr[i][j + 3] === "O" && arr[i][j + 4] === "O" ||
+                    arr[i][j] === "O" && arr[i + 1][j] === "O" && arr[i + 2][j] === "O" && arr[i + 3][j] === "O" && arr[i + 4][j] === "O" ||
+                    arr[i][j] === "O" && arr[i + 1][j + 1] === "O" && arr[i + 2][j + 2] === "O" && arr[i + 3][j + 3] === "O" && arr[i + 4][j + 4] === "O" ||
+                    arr[i][j] === "O" && arr[i + 1][j - 1] === "O" && arr[i + 2][j - 2] === "O" && arr[i + 3][j - 3] === "O" && arr[i + 4][j - 4] === "O") {
+                    owin = true;
+                }
             }
         }
+        if (xwin === true) {
+            alert("X thắng")
+        } else if (owin === true) {
+            alert("O thắng")
+        } else {
+            alert("Chưa phân thắng bại");
+        }
+
+        hienthicaro()
+
     }
-}
+
 </script>

@@ -31,17 +31,18 @@
 </head>
 <body>
 <h1>Ứng dụng quản lý sản phẩm sử dụng hàm</h1>
-<table id="ds">
-</table>
-</body>
-</html><br><br>
+<input id="id" style="display: none">
 <input placeholder="Nhập tên" id="name"><br><br>
 <input placeholder="Link ảnh" id="img"><br><br>
 <button onclick="them()">Thêm</button>
+<button onclick="xacnhansua()">Xác nhận sửa</button><br><br>
+<table id="ds">
+</table>
+</body>
+</html>
 <script>
-    let ds = "";
     let arr = [
-        ["STT", "Tên", "Hình ảnh", "Xóa"],
+        ["STT", "Tên", "Hình ảnh", "Xóa","Sửa"],
         ["1", "Apple", "https://www.freeiconspng.com/uploads/apple-icon-4.png",],
         ["2", "Samsung", "https://th.bing.com/th/id/R.93f30978b06f43657edfb980e1a3459e?rik=kZp5rWBHrJWc0g&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fsamsung-hd-png-samsung-logo-1000.jpg&ehk=zhoDBloOTla6lO8irUMtSwOnZjuiSJ0cbS%2b7fqb29cc%3d&risl=&pid=ImgRaw&r=0",],
         ["3", "Oppo", "https://th.bing.com/th/id/OIP.aBv1iocZbd3g15FKkAO_6AHaFW?pid=ImgDet&rs=1",],
@@ -50,18 +51,19 @@
     ];
 
     function hienthi() {
+        let ds = "";
         for (let i = 0; i < arr.length; i++) {
             ds += "<tr>"
             for (let j = 0; j < arr[i].length; j++) {
                 if (i > 0 && j === 2) {
-                    ds += "<td><img src=" + arr[i][j] + " width='150' height='150'></td>"
+                    ds += "<td><img src=" + arr[i][j] + " width='100' height='100'></td>"
                 } else {
                     ds += "<td>" + arr[i][j] + "</td>"
-
                 }
             }
             if (i !== 0) {
-                ds += "<td><button onclick='xoa("+i+")'>Xóa</button></td>"
+                ds += "<td><button onclick='xoa("+i+")'>Xóa</button></td>"+
+                    "<td><button onclick='sua("+i+")'>Sửa</button></td>"
             }
             ds += "</tr>"
 
@@ -73,7 +75,6 @@
 
     function xoa(index) {
         arr.splice(index, 1,);
-        ds="";
         hienthi()
     }
     function them() {
@@ -81,8 +82,19 @@
         let img = document.getElementById("img").value;
         let arrthem=[arr.length,name,img]
         arr.push(arrthem);
-        ds="";
         hienthi();
     }
+    function sua(i) {
+        document.getElementById("name").value=arr[i][1];
+        document.getElementById("img").value=arr[i][2];
+        document.getElementById("id").value=arr[i][0];
+    }
+    function xacnhansua() {
+        let name=document.getElementById("name").value;
+        let img=document.getElementById("img").value;
+        let id=document.getElementById("id").value;
+        arr[id]=[id,name,img]
+        hienthi();
 
+    }
 </script>
