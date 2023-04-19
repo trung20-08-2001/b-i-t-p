@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input placeholder="Nhập chiều dài " id="length">
+<br><br>
+<input placeholder="Nhập chiều rông" id="width">
+<br><br>
+<button onclick="display()">Hiển thị</button>
+<p>Diện tích:<span id="area"></span></p>
+<p>Chu vi:<span id="perimeter"></span></p>
+<canvas id="myCanvas" width="1500" height="700"></canvas>
+</body>
+</html>
+<script>
+    class Rectangle {
+        length;
+        width;
+
+        constructor(width, length) {
+            this.width = width;
+            this.length =length;
+        }
+
+        getArea() {
+            return length * width;
+        }
+
+        getPerimeter() {
+            return 2 * (length + width);
+        }
+
+        hienthi() {
+            vehinhchunhat()
+
+        }
+    }
+
+    function vehinhchunhat() {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let width = document.getElementById("width").value;
+        let length = document.getElementById("length").value;
+        ctx.fillStyle = randomcolor()
+        ctx.fillRect(100, 100, length, width);
+
+
+    }
+
+    function randomcolor() {
+        let hex = Math.floor(Math.random() * 16777215).toString(16);
+        let color = "#" + hex;
+        return color;
+    }
+
+    function display() {
+        let hienthi = new Rectangle(length, width);
+        width = parseInt(document.getElementById("width").value);
+        length = parseInt(document.getElementById("length").value);
+        hienthi.hienthi();
+        document.getElementById("area").innerHTML = hienthi.getArea()
+        document.getElementById("perimeter").innerHTML = hienthi.getPerimeter()
+    }
+
+</script>
