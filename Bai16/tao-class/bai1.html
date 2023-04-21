@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Tạo một class Animal để mô tả đặc điểm chung của các động vật
+    // và các phương thức như eat(), sleep() và move().
+    class Animal{
+        loainao;
+        thucan;
+        cachngu;
+
+        constructor(loainao,thucan,cachngu) {
+
+            this.loainao=loainao;////tren can hay duoi nuoc
+            this.thucan=thucan;
+            this.cachngu=cachngu;
+
+
+        }
+        eat() {
+            log(this.thucan)
+        }
+        slepp() {
+            return  this.cachngu
+        }
+        move() {
+            if (this.loainao==="trencan") {
+                return "di"
+            }
+            if (this.loainao==="duoinuoc") {
+                return "boi"
+            }
+            if (this.loainao==="chim") {
+                return "bay"
+            }
+        }
+
+
+    }
+    let ca=new Animal("duoinuoc","phu du","khong ngu");
+    document.write("Ca co: <br>"+ca.eat()+"<br> "+ca.slepp()+"<br> " +ca.move())
+    let chaomao=new Animal("chim","sau","ngudung");
+    document.write("Chim co: <br>"+chaomao.eat()+"<br>"+chaomao.slepp()+"<br>"+chaomao.move())
+
+
+</script>

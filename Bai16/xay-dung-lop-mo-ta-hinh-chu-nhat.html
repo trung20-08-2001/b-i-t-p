@@ -22,7 +22,7 @@
 
         constructor(width, length) {
             this.width = width;
-            this.length =length;
+            this.length = length;
         }
 
         getArea() {
@@ -40,7 +40,9 @@
     }
 
     function vehinhchunhat() {
-        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let canvas = document.getElementById("myCanvas")
+        ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         let width = document.getElementById("width").value;
         let length = document.getElementById("length").value;
         ctx.fillStyle = randomcolor()
@@ -56,9 +58,9 @@
     }
 
     function display() {
-        let hienthi = new Rectangle(length, width);
         width = parseInt(document.getElementById("width").value);
         length = parseInt(document.getElementById("length").value);
+        let hienthi = new Rectangle(length, width);
         hienthi.hienthi();
         document.getElementById("area").innerHTML = hienthi.getArea()
         document.getElementById("perimeter").innerHTML = hienthi.getPerimeter()

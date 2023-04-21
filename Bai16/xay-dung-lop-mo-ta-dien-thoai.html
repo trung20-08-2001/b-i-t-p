@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    class Mobile {
+        trangThaiPin;
+        tinNhanDangSoanThao;
+        tinNhanDen;
+        tinNhanDaGui;
+        trangThaiBatTat;
+        constructor() {
+            this.trangThaiPin = 100;
+            this.tinNhanDangSoanThao = '';
+            this.tinNhanDen = [];
+            this.tinNhanDaGui = [];
+            this.trangThaiBatTat = false;
+        }
+
+        kiemTraTrangThai() {
+            return this.trangThaiBatTat;
+        }
+
+        batDienThoai() {
+            this.trangThaiBatTat = true;
+        }
+
+        tatDienThoai() {
+            this.trangThaiBatTat = false;
+        }
+
+        sacPin() {
+            this.trangThaiPin = 100;
+        }
+
+        soanTinNhan(noiDung) {
+            if (this.trangThaiBatTat) {
+                this.tinNhanDangSoanThao = noiDung;
+                this.trangThaiPin--;
+            }
+        }
+
+        nhanTinNhan(tinNhan) {
+            if (this.trangThaiBatTat) {
+                this.tinNhanDen.push(tinNhan);
+                this.trangThaiPin--;
+            }
+        }
+
+        guiTinNhan(tinNhan, dienThoaiNhan) {
+            if (this.trangThaiBatTat && dienThoaiNhan.kiemTraTrangThai()) {
+                this.tinNhanDaGui.push(tinNhan);
+                dienThoaiNhan.nhanTinNhan(tinNhan);
+                this.trangThaiPin--;
+            }
+        }
+
+        xemTinNhanDen() {
+            if (this.trangThaiBatTat) {
+                for (let i = 0; i < this.tinNhanDen.length; i++) {
+                    console.log(this.tinNhanDen[i]);
+                }
+                this.trangThaiPin--;
+            }
+        }
+
+        xemTinNhanDaGui() {
+            if (this.trangThaiBatTat) {
+                for (let i = 0; i < this.tinNhanDaGui.length; i++) {
+                    console.log(this.tinNhanDaGui[i]);
+                }
+                this.trangThaiPin--;
+            }
+        }
+    }
+let phone=new Mobile();
+   console.log(phone.batDienThoai)
+    console.log(phone.trangThaiPin)
+    console.log(phone.xemTinNhanDen)
+    console.log(phone.trangThaiPin)
+
+
+</script>

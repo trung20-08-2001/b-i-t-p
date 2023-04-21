@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //Tạo một class Product để lưu trữ thông tin về sản phẩm như tên, giá, mô tả, v.v.
+  class Product{
+      constructor(ten,gia,mota){
+          this.ten=ten;
+          this.gia=gia;
+          this.mota=mota;
+      }
+  }
+  let acer=new Product("aspire3","20 000 000 VND","dung core 7");
+  document.write("Ten: "+acer.ten+"<br>" +
+      "Gia: "+acer.gia+"<br>" +
+      "Mo ta: "+acer.mota+"<br>")
+</script>

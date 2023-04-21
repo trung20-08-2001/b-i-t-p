@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Tạo một class Car để mô tả các đặc tính của một chiếc xe như tốc độ, mức tiêu thụ nhiên liệu, số chỗ ngồi, v.v.
+    class Car{
+        name;
+        speed;
+        mucdotieuthunl;
+        chongoi;
+        constructor(name,speed,mucdotieuthu,chongoi) {
+            this.name=name;
+            this.speed=speed;
+            this.mucdotieuthunl=mucdotieuthu;
+            this.chongoi=chongoi;
+        }
+    }
+    let toyota=new Car("vios","200km/h","tiet kiem","4 cho");
+    document.write("Ten: " + toyota.name + "<br>" +
+        "Toc do: " + toyota.speed + "<br>" +
+        "Muc do tieu thu: " + toyota.mucdotieuthunl + "<br>" +
+        "Cho ngoi: " + toyota.chongoi + "<br>")
+</script>

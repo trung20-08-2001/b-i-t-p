@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    ////Tạo một class Rectangle để tính diện tích và chu vi của một hình chữ nhật.
+    class Rectangle {
+        length;
+        width;
+        constructor(length,width) {
+            this.width=width;
+            this.length=length;
+        }
+        perimeter() {
+            return 2*(this.length+this.width);
+        }
+        area () {
+            return this.length*this.width;
+        }
+    }
+    let hcn=new Rectangle(3,2)
+    document.write("Perimeter: "+hcn.perimeter()+"<br>" +"Area: "+hcn.area())
+
+</script>

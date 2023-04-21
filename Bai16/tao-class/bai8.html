@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //Tạo một class Employee để lưu trữ thông tin về một nhân viên như tên, địa chỉ, lương, v.v.
+  class Employee {
+    ten;
+    tuoi;
+    diachi;
+    luongngay
+    constructor(ten,tuoi,diachi,luongngay) {
+        this.ten=ten;
+        this.tuoi=tuoi;
+        this.diachi=diachi;
+        this.luongngay=luongngay;
+    }
+    luongthang(songaylam) {
+        return this.luongngay*songaylam;
+    }
+  }
+  let nv1=new Employee("A","19","Ha Noi","300000")
+  document.write("Ten: "+nv1.ten+"<br>"+
+      "Tuoi: "+nv1.tuoi+"<br>"+
+      "Dia chi: "+nv1.diachi+"<br>"+
+      "Luong thang: "+nv1.luongthang(12)+"<br>")
+</script>

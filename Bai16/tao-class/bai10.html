@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //Tạo một class Movie để lưu trữ thông tin về một bộ phim như tên, đạo diễn, diễn viên, thể loại, v.v.
+  class Movie{
+      constructor(Ten,Dao_dien,Quoc_gia,Namsx,Thoi_luong,Do_phan_giai,The_loai,Dien_vien) {
+          this.Tên=Ten;
+          this.Đạo_diễn=Dao_dien;
+          this.Quốc_gia=Quoc_gia;
+          this.Năm_sx=Namsx;
+          this.Thời_lượng=Thoi_luong;
+          this.Độ_phân_giải=Do_phan_giai;
+          this.Thể_loại=The_loai;
+          this.Diễn_viên=Dien_vien;
+      }
+  }
+  let movie1=new Movie("Chị chị em em","Vũ Ngọc Đăng","Việt Nam",
+  "2023","115'","Full HD","Hài hước, tâm lý",["Lê Giang"," Minh Hằng"," Ngọc Trinh"])
+  for (let prop in movie1) {
+      document.write(prop+": "+movie1[prop]+"<br>")
+  }
+</script>

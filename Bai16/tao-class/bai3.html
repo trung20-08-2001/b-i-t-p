@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //Tạo một class Circle để tính diện tích và chu vi của một hình tròn
+    class Circle{
+        bankinh;
+
+        constructor(bankinh) {
+            this.bankinh=bankinh;
+        }
+        perimeter() {
+            return 2*Math.PI*(this.bankinh)
+        }
+        area () {
+            return (this.bankinh)*(this.bankinh)*Math.PI
+        }
+
+    }
+    let tron=new Circle (3)
+    document.write("Perimeter: "+tron.perimeter()+"<br>"+"Area: "+tron.area())
+</script>

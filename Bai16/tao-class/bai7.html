@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+  //Tạo một class Bank để quản lý tài khoản ngân hàng của các khách hàng và các giao dịch.
+  class Bank{
+       tenkhachhang;
+       sodutk;
+       constructor(ten,sd) {
+           this.tenkhachhang=ten;
+           this.sodutk=+sd;
+       }
+       chuyentien(sotienchuyen) {
+            let c=this.sodutk-sotienchuyen;
+            return this.sodutk=c
+       }
+       nhantien(sotiennhan) {
+            let c=this.sodutk+sotiennhan;
+            return this.sodutk=c
+       }
+  }
+  let person=new Bank("A","1000000");
+  document.write("Ten khach hang: "+person.tenkhachhang+"<br>"+
+      "So du : "+person.sodutk+"<br>"+
+      "Sau khi chuyen: "+person.chuyentien(1000)+"<br>"+
+      "Sau khi nhan: "+person.nhantien(2000)+"<br>")
+</script>
