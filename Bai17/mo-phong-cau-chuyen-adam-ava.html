@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="display"></div>
+</body>
+</html>
+<script>
+    class Apple{
+        constructor() {
+            this.weight=10;
+        }
+    }
+    class Humen{
+        constructor(name,weight,gender) {
+            this.name=name;
+            this.weight =weight;
+            this.gender=gender;
+            this.remember=[];
+        }
+        void(content){
+            document.getElementById("display").innerHTML=this.name+": "+ content+"<br>"
+        }
+        eatApple(){
+
+        }
+    }
+</script>

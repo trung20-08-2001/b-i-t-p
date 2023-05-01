@@ -5,9 +5,135 @@
     <title>Title</title>
 </head>
 <body>
-
+<!--<img style="position: absolute;left:50px" id="img" width="100" height="100" src="https://www.freepnglogos.com/uploads/doraemon-png/kumpulan-vector-doraemon-photo-17.png">-->
+<div id="displayimg"></div>
+<!--<canvas id="cv" width="1500" height="700"></canvas>-->
 </body>
 </html>
 <script>
+    class Image {
+        x;
+        y;
+        src;
+        speed;
 
+        constructor(x, y, speed, src) {
+            this.x = parseInt(x);
+            this.y = parseInt(y);
+            this.speed = speed;
+            this.src = src;
+        }
+
+        displayImage() {
+            let x = this.x;
+            let y = this.y;
+            document.getElementById("displayimg").innerHTML =
+                "<img src='" + this.src + "' width='100px' height='100px' style='position: absolute;left:" + x + "px;top:" + y + "px' alt='Image'>"
+        }
+
+        moveUp() {
+            this.y -= this.speed;
+            if (this.y <= 0) {
+                this.y = 0
+            }
+            this.displayImage();
+        }
+
+        moveDown() {
+            this.y += this.speed;
+            if (this.y >= 618) {
+                this.y = 618
+            }
+            this.displayImage();
+        }
+
+        moveLeft() {
+            this.x -= this.speed;
+            if (this.x <= 0) {
+                this.x = 0
+            }
+            this.displayImage();
+        }
+
+        moveRight() {
+            this.x += this.speed;
+            if (this.x >= 1420) {
+                this.x = 1420
+            }
+            this.displayImage();
+
+        }
+
+        run() {
+            this.speed += 5;
+
+        }
+
+        notRun() {
+            this.speed -= 10;
+        }
+    }
+
+    let x = Math.floor(Math.random() * 1400);
+    let y = Math.floor(Math.random() * 638);
+    let img1 = new Image(x, y, 2, "https://www.freepnglogos.com/uploads/doraemon-png/kumpulan-vector-doraemon-photo-17.png")
+    img1.displayImage();
+    img1.moveRight();
+
+    function move(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                img1.moveLeft();
+                break;
+            case 38:
+                img1.moveUp();
+                break;
+            case 39:
+                img1.moveRight();
+                break;
+            case 40:
+                img1.moveDown();
+                break;
+            case 32:
+                img1.run();
+                break;
+        }
+    }
+
+
+
+    function docReady() {
+        window.addEventListener("keydown", move);
+    }
+
+    docReady();
+
+
+    // let cv=document.getElementById("cv");
+    // let ctx=cv.getContext("2d");
+    // class Img {
+    //     x;
+    //     y;
+    //     speed;
+    //
+    //     constructor(x, y, speed, src) {
+    //         this.x = x;
+    //         this.y = y;
+    //         this.speed = speed;
+    //         this.src = src;
+    //     }
+    //     draw() {
+    //         let img=new Image();
+    //         img.src=this.src;
+    //         let x=this.x;
+    //         let y=this.y;
+    //         img.onload = function () {
+    //             ctx.drawImage(img,x,y, 200, 200)
+    //         }
+    //
+    //     }
+    // }
+    //
+    // let img1 = new Img(100, 100, 100, "https://www.freepnglogos.com/uploads/doraemon-png/kumpulan-vector-doraemon-photo-17.png")
+    // img1.draw()
 </script>

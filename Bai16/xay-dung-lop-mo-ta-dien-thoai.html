@@ -5,84 +5,152 @@
     <title>Title</title>
 </head>
 <body>
+<div id="display"></div>
+<textarea style="display: none" id="texting" placeholder="Nhập tin nhắn của bạn"></textarea>
 </body>
 </html>
 <script>
-    class Mobile {
-        trangThaiPin;
-        tinNhanDangSoanThao;
-        tinNhanDen;
-        tinNhanDaGui;
-        trangThaiBatTat;
-        constructor() {
-            this.trangThaiPin = 100;
-            this.tinNhanDangSoanThao = '';
-            this.tinNhanDen = [];
-            this.tinNhanDaGui = [];
-            this.trangThaiBatTat = false;
+    class Phone {
+        phoneName;
+        theBattery;
+        messagesIsBeingDrafted;
+        inbox;
+        outbox;
+        turnOnOff;
+
+        constructor(phoneName,theBattery) {
+            this.phoneName=phoneName;
+            this.theBattery =theBattery;
+            this.messagesIsBeingDrafted = [];
+            this.outbox = [];
+            this.turnOnOff = false;
+            this.inbox=[];
         }
 
-        kiemTraTrangThai() {
-            return this.trangThaiBatTat;
-        }
-
-        batDienThoai() {
-            this.trangThaiBatTat = true;
-        }
-
-        tatDienThoai() {
-            this.trangThaiBatTat = false;
-        }
-
-        sacPin() {
-            this.trangThaiPin = 100;
-        }
-
-        soanTinNhan(noiDung) {
-            if (this.trangThaiBatTat) {
-                this.tinNhanDangSoanThao = noiDung;
-                this.trangThaiPin--;
+        reduceaBattery() {
+            this.theBattery-=1;
+            if (this.theBattery <= 20) {
+                document.getElementById("display").innerHTML +=this.phoneName+ ": Please charge the battery" + "<br>";
+            }
+            if(this.theBattery<=0){
+                this.turnOff();
+                document.getElementById("display").innerHTML+=this.phoneName+": Shutdown due to running out of battery <br>"
             }
         }
 
-        nhanTinNhan(tinNhan) {
-            if (this.trangThaiBatTat) {
-                this.tinNhanDen.push(tinNhan);
-                this.trangThaiPin--;
+        turnOn() {
+            this.reduceaBattery();
+            if(this.theBattery>0) {
+                this.turnOnOff = "Phone On";
+                document.getElementById("display").innerHTML += this.phoneName + ": On" + "<br>";
+            }
+
+        }
+
+        turnOff() {
+            this.theBattery -= 1;
+            this.turnOnOff = "Phone Off";
+            document.getElementById("display").innerHTML+=this.phoneName+": Off" +"<br>";
+        }
+
+        checkStatus() {
+            if (this.turnOnOff === "Phone On"&&this.theBattery<=100&&this.theBattery>0) {
+                this.reduceaBattery()
+                document.getElementById("display").innerHTML +="Status "+this.phoneName+": " +this.turnOnOff + "<br>";
             }
         }
 
-        guiTinNhan(tinNhan, dienThoaiNhan) {
-            if (this.trangThaiBatTat && dienThoaiNhan.kiemTraTrangThai()) {
-                this.tinNhanDaGui.push(tinNhan);
-                dienThoaiNhan.nhanTinNhan(tinNhan);
-                this.trangThaiPin--;
+        charge() {
+            if (this.theBattery === 100) {
+                document.getElementById("display").innerHTML += this.phoneName+": Battery is full" + "<br>";
+            }
+            if (this.theBattery < 100 && this.theBattery > 0) {
+                this.theBattery += 1;
+            }
+
+        }
+
+        checkTheBattery() {
+            if (this.turnOnOff === "Phone On"&&this.theBattery<=100&&this.theBattery>0) {
+                this.reduceaBattery()
+                document.getElementById("display").innerHTML += this.phoneName+": Pin= "+this.theBattery + "% <br>";
             }
         }
 
-        xemTinNhanDen() {
-            if (this.trangThaiBatTat) {
-                for (let i = 0; i < this.tinNhanDen.length; i++) {
-                    console.log(this.tinNhanDen[i]);
+        texting(content) {
+            if (this.turnOnOff === "Phone On"&&this.theBattery<=100&&this.theBattery>0) {
+                this.reduceaBattery();
+                this.messagesIsBeingDrafted.push(content);
+            }
+        }
+        viewTheMessagesBeingDrafted(){            ///xem tin nhắn đang viết ở texting
+            if (this.turnOnOff === "Phone On"&&this.theBattery<=100&&this.theBattery>0) {
+                this.reduceaBattery();
+                document.getElementById("display").innerHTML+=this.phoneName+": Đây là tin nhắn bạn đang soạn thảo: "+this.messagesIsBeingDrafted+"<br>"
+            }
+        }
+        viewReceiveMessages() {       ///xem tin nhắn đến
+            if (this.turnOnOff==="Phone On"&&this.theBattery<=100&&this.theBattery>0){
+                this.reduceaBattery();
+                if(this.inbox.length===0){
+                    document.getElementById("display").innerHTML+=this.phoneName+": Không có gì trong hộp thư đến!"+"<br>";
+                }else {
+                    for (let i = 0; i < this.inbox.length; i++) {
+                        document.getElementById("display").innerHTML +=this.phoneName+ ": Đây là hộp thư đến của bạn:" + this.inbox[i] + "<br>";
+                    }
                 }
-                this.trangThaiPin--;
+            }
+        }
+        sendMessagesAndPushInOutbox(content,address){   // gửi tin nhắn đến address,và cho vào outbox
+            if (this.turnOnOff === "Phone On"&&this.theBattery<=100&&this.theBattery>0) {
+                this.reduceaBattery();
+                address.inbox.push(content);
+                this.outbox.push(content);
+            }
+        }
+        viewSentMessages(){         ///xem tin đã gửi
+            if (this.turnOnOff === "Phone On"&&this.theBattery<=100&&this.theBattery>0) {
+                this.reduceaBattery();
+                if(this.outbox.length===0){
+                    document.getElementById("display").innerHTML+=this.phoneName+": Bạn không có tin nhắn nào đã gửi đi."+"<br>"
+                }else {
+                    for (let i = 0; i < this.outbox.length; i++) {
+                        document.getElementById("display").innerHTML +=this.phoneName+": Đây là tin nhắn mà bạn đã gửi đi: " + this.outbox[i] + "<br>"
+                    }
+                }
             }
         }
 
-        xemTinNhanDaGui() {
-            if (this.trangThaiBatTat) {
-                for (let i = 0; i < this.tinNhanDaGui.length; i++) {
-                    console.log(this.tinNhanDaGui[i]);
-                }
-                this.trangThaiPin--;
-            }
-        }
     }
-let phone=new Mobile();
-   console.log(phone.batDienThoai)
-    console.log(phone.trangThaiPin)
-    console.log(phone.xemTinNhanDen)
-    console.log(phone.trangThaiPin)
+
+    let phone1 = new Phone("Nokia",100);
+    let phone2=new Phone("Sam Sung",50);
+    phone1.turnOn();
+   phone1.checkStatus();
+    phone1.checkTheBattery();
+    phone1.texting("test");
+    phone1.sendMessagesAndPushInOutbox("hello",phone2);
+    phone1.sendMessagesAndPushInOutbox("hello1",phone2);
+    phone1.sendMessagesAndPushInOutbox("hello2",phone2);
+    phone1.sendMessagesAndPushInOutbox("hello3",phone2);
+    phone1.viewSentMessages();
+    phone1.viewTheMessagesBeingDrafted();
+    phone1.viewReceiveMessages();
+    phone1.checkTheBattery()
+
+    phone2.turnOn();
+    phone2.viewReceiveMessages();
+    phone2.sendMessagesAndPushInOutbox("hello Nokia",phone1);
+    phone1.viewReceiveMessages();
+    phone2.viewSentMessages();
+    phone2.checkTheBattery();
+    phone2.charge();
+    phone2.charge();
+    phone2.checkTheBattery();
+    phone2.charge();
+    phone2.checkTheBattery();
+    phone1.turnOff();
+    phone1.checkStatus();
 
 
 </script>

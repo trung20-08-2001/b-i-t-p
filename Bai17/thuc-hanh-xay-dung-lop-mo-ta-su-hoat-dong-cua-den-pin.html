@@ -5,58 +5,63 @@
     <title>Title</title>
 </head>
 <body>
-
+<div id="display"></div>
 </body>
 </html>
 <script>
-  class Battery{
-    setEnergy(so) {
-        this.energy=so;
-    }
-    getEnergy(){
-        return this.energy;
+    class Battery {
+        constructor(energy) {
+            this.energy = energy;
+            this.isBatteryLow = true;
+            this.status=false;
+        }
 
-    }
-    decreaseEnergy(){
-        if(this.energy>0) {
-            this.energy--
+        reduceaBattery() {
+            this.energy -= 1;
+            if (this.energy <= 20 && this.isBatteryLow === true&&this.status===true) {
+                document.getElementById("display").innerHTML += "Pin yếu<br>";
+                this.isBatteryLow = false;
+            }
+            if (this.energy <= 0) {
+                document.getElementById("display").innerHTML += "Hết pin<br>";
+                this.status=false;
+            }
         }
     }
-  }
-  class FlashLamp {
-      status;
-      battery;
-      setBattery(battery){
-          this.battery=battery;
-      }
-      getBatteryInfo(){
-          return this.battery.getEnergy();
-      }
-      light() {
-          if(this.status) {
-              alert("Lighting")
-          }else {
-              alert("Not lighting");
-          }
-      }
-      turnOn() {
-          this.status=true
-      }
-      turnOff() {
-          this.status=false
-      }
-  }
-  let battery=new Battery();
-  battery.setEnergy(100);
-  let flashLamp=new FlashLamp();
-  flashLamp.setBattery(battery);
-  document.write("Battery info: " +flashLamp.getBatteryInfo()+"<br>");
-  flashLamp.light();
-  document.write("Turn on <br>")
-  flashLamp.turnOn();
-  flashLamp.turnOff();
-  document.write("Battery info: "+flashLamp.getBatteryInfo()+"<br>")
-  document.write("Turn off <br>")
-  flashLamp.turnOff();
-  flashLamp.light();
+
+    class FlashLamp {
+        constructor() {
+            this.battery = new Battery(100);
+        }
+
+        turnOn() {
+            this.battery.status = true;
+            this.battery.reduceaBattery();
+            if (this.battery.energy <= 100 && this.battery.energy > 0) {
+                document.getElementById("display").innerHTML += "Light is on <br>"
+            }
+        }
+
+        turnOff() {
+            if (this.battery.status===true) {
+                this.battery.status = false;
+                document.getElementById("display").innerHTML += "Light is off <br>"
+            }
+        }
+
+        checkBattery() {
+            if (this.battery.status) {
+                this.battery.reduceaBattery();
+                document.getElementById("display").innerHTML +="Pin: "+ this.battery.energy + "%<br>"
+            }
+        }
+    }
+
+    let den = new FlashLamp();
+    den.turnOn();
+    den.checkBattery();
+    den.checkBattery();
+    den.turnOff();
+    den.checkBattery();
+
 </script>
